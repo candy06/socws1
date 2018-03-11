@@ -23,5 +23,13 @@ namespace Client
                 citiesList.Items.Add(cities[i].name);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            stationsList.Items.Clear();
+            string citySelectedName = (string) citiesList.SelectedItem;
+            Station[] stations = client.GetStationsForCity(citySelectedName);
+            stationsList.Items.Add(stations.GetValue(0).GetType());
+        }
     }
 }

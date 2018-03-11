@@ -8,11 +8,5 @@ namespace SOAPLibraryVelib
         public List<string> cities { get; set; }
         public string commercial_name { get; set; }
         public string country_code { get; set; }
-
-        public override string ToString()
-        {
-            return "Name: " + name;
-        }
-
     }
 }

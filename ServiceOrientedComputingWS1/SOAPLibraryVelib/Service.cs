@@ -28,7 +28,7 @@ namespace SOAPLibraryVelib
 
         public List<Station> GetStationsForCity(string city_name)
         {
-            throw new NotImplementedException();
+            return rm.GetStationsForCity(city_name);
         }
     }
 }

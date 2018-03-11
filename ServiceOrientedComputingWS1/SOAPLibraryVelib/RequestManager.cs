@@ -20,5 +20,16 @@ namespace SOAPLibraryVelib
             List<City> cities = JsonConvert.DeserializeObject<List<City>>(responseFromServer);
             return cities;
         }
+
+        public List<Station> GetStationsForCity(string cityName)
+        {
+            WebRequest request = WebRequest.Create("https://api.jcdecaux.com/vls/v1/stations?contract=" + cityName + "&apiKey=" + apiKey);
+            WebResponse response = request.GetResponse();
+            Stream dataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+            string responseFromServer = reader.ReadToEnd();
+            List<Station> stations = JsonConvert.DeserializeObject<List<Station>>(responseFromServer);
+            return stations;
+        }
     }
 }
