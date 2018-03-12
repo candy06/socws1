@@ -21,6 +21,7 @@ namespace Client
             {
                 citiesList.Items.Add(cities[i]);
             }
+            button1.Enabled = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -32,6 +33,8 @@ namespace Client
             {
                 stationsList.Items.Add(stationsNames[i]);
             }
+            button2.Enabled = false;
+            stationsList.Enabled = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -41,6 +44,39 @@ namespace Client
             int availableBikes = client.GetAvailableBikesForStation(station, city);
             label1.Text = "Available bikes for the selected station: " + availableBikes;
             label1.Visible = true;
+        }
+
+        private void citiesList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            citiesList.Enabled = false;
+            selectNewCityButton.Enabled = true;
+
+            stationsList.Items.Clear();
+
+            button2.Enabled = true;
+
+        }
+
+        private void selectNewCityButton_Click(object sender, EventArgs e)
+        {
+            citiesList.Enabled = true;
+            selectNewCityButton.Enabled = false;
+        }
+
+        private void stationsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            stationsList.Enabled = false;
+            selectNewStationButton.Enabled = true;
+
+            button3.Enabled = true;
+        }
+
+        private void selectNewStationButton_Click(object sender, EventArgs e)
+        {
+            stationsList.Enabled = true;
+            selectNewStationButton.Enabled = false;
+
+            button3.Enabled = false;
         }
     }
 }
