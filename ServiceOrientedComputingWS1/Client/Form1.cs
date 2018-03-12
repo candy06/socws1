@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Client.MyVelibService;
+using System;
 using System.Windows.Forms;
-using Client.VelibSOAPService;
 
 namespace Client
 {
@@ -17,10 +16,10 @@ namespace Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            City[] cities = client.GetCities();
+            string[] cities = client.GetCities();
             for (int i = 0; i < cities.Length; i++)
             {
-                citiesList.Items.Add(cities[i].name);
+                citiesList.Items.Add(cities[i]);
             }
         }
 
@@ -28,8 +27,20 @@ namespace Client
         {
             stationsList.Items.Clear();
             string citySelectedName = (string) citiesList.SelectedItem;
-            Station[] stations = client.GetStationsForCity(citySelectedName);
-            stationsList.Items.Add(stations.GetValue(0).GetType());
+            string[] stationsNames = client.GetStationsNameForCity(citySelectedName);
+            for (int i = 0; i < stationsNames.Length; i++)
+            {
+                stationsList.Items.Add(stationsNames[i]);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string city = (string) citiesList.SelectedItem;
+            string station = (string)stationsList.SelectedItem;
+            int availableBikes = client.GetAvailableBikesForStation(station, city);
+            label1.Text = "Available bikes for the selected station: " + availableBikes;
+            label1.Visible = true;
         }
     }
 }

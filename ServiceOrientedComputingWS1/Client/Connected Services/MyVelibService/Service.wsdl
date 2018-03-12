@@ -4,8 +4,8 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SOAPLibraryVelib" />
-      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SOAPLibraryVelib" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService_GetCities_InputMessage">
@@ -32,6 +32,18 @@
   <wsdl:message name="IService_GetStationsForCity_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetStationsForCityResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetStationsNameForCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationsNameForCity" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStationsNameForCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationsNameForCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAvailableBikesForStation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableBikesForStation" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAvailableBikesForStation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableBikesForStationResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="GetCities">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetCities" message="tns:IService_GetCities_InputMessage" />
@@ -48,6 +60,14 @@
     <wsdl:operation name="GetStationsForCity">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStationsForCity" message="tns:IService_GetStationsForCity_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStationsForCityResponse" message="tns:IService_GetStationsForCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStationsNameForCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStationsNameForCity" message="tns:IService_GetStationsNameForCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStationsNameForCityResponse" message="tns:IService_GetStationsNameForCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableBikesForStation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAvailableBikesForStation" message="tns:IService_GetAvailableBikesForStation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAvailableBikesForStationResponse" message="tns:IService_GetAvailableBikesForStation_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="velib" type="tns:IService">
@@ -81,6 +101,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetStationsForCity">
       <soap:operation soapAction="http://tempuri.org/IService/GetStationsForCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStationsNameForCity">
+      <soap:operation soapAction="http://tempuri.org/IService/GetStationsNameForCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableBikesForStation">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAvailableBikesForStation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

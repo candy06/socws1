@@ -7,15 +7,12 @@ namespace SOAPLibraryVelib
     interface IService
     {
         [OperationContract]
-        List<City> GetCities();
+        List<string> GetCities();
 
         [OperationContract]
-        Station GetStation(int station_number, string city_name);
+        List<string> GetStationsNameForCity(string name);
 
         [OperationContract]
-        List<Station> GetStations();
-
-        [OperationContract]
-        List<Station> GetStationsForCity(string city_name);
+        int GetAvailableBikesForStation(string stationName, string cityName);
     }
 }

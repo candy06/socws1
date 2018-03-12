@@ -2,11 +2,10 @@
 
 namespace SOAPLibraryVelib
 {
-    [DataContract]
     public class Station
     {
         public int number { get; set; }
-        [DataMember] public string name { get; set; }
+        public string name { get; set; }
         public string address { get; set; }
         public bool banking { get; set; }
         public bool bonus { get; set; }

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SOAPLibraryVelib
 {
@@ -11,24 +8,36 @@ namespace SOAPLibraryVelib
 
         private RequestManager rm = new RequestManager();
 
-        public List<City> GetCities()
+        public int GetAvailableBikesForStation(string stationName, string cityName)
         {
-            return rm.GetCitiesRequest();
+            List<Station> stationsOfCity = rm.GetStationsForCity(cityName);
+            foreach (Station s in stationsOfCity)
+            {
+                if (s.name.Equals(stationName)) return s.available_bikes;
+            }
+            return -1;
         }
 
-        public Station GetStation(int station_number, string city_name)
+        public List<string> GetCities()
         {
-            throw new NotImplementedException();
+            List<City> cities = rm.GetCitiesRequest();
+            List<string> result = new List<string>();
+            foreach (City c in cities)
+            {
+                result.Add(c.name);
+            }
+            return result;
         }
-
-        public List<Station> GetStations()
+       
+        public List<string> GetStationsNameForCity(string name)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<Station> GetStationsForCity(string city_name)
-        {
-            return rm.GetStationsForCity(city_name);
+            List<Station> stations = rm.GetStationsForCity(name);
+            List<string> result = new List<string>();
+            foreach (Station s in stations)
+            {
+                result.Add(s.name);
+            }
+            return result;
         }
     }
 }

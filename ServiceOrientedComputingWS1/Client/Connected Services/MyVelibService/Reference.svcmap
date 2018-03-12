@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="42881c63-c306-4084-a009-66b14871465d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="f77dc2fb-750b-4ded-bf90-56e56a8500f2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="ccb510c2-36cf-4c81-a1eb-08ca180c81fb" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd0" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="e462be6f-46b4-43cb-961e-ba7c86d09e19" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd3" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="6d432d0f-9010-41a7-95fb-64803530e947" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd2" />
+    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="e602b3bd-b401-411a-9b9d-8ddf10b6f559" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="1a2c51e1-eaf3-4213-bd92-2195e37249d6" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

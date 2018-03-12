@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\VelibSOAPService\Reference.cs">
+    <Compile Include="Connected Services\MyVelibService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -72,25 +72,22 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Connected Services\VelibSOAPService\Client.VelibSOAPService.City.datasource">
+    <None Include="Connected Services\MyVelibService\Client.MyVelibService.Station.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\VelibSOAPService\Client.VelibSOAPService.Station.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\VelibSOAPService\item.xsd">
+    <None Include="Connected Services\MyVelibService\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\VelibSOAPService\item1.xsd">
+    <None Include="Connected Services\MyVelibService\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\VelibSOAPService\item2.xsd">
+    <None Include="Connected Services\MyVelibService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\VelibSOAPService\item3.xsd">
+    <None Include="Connected Services\MyVelibService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\VelibSOAPService\Service.wsdl" />
+    <None Include="Connected Services\MyVelibService\Service.wsdl" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,19 +105,19 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\VelibSOAPService\" />
+    <WCFMetadataStorage Include="Connected Services\MyVelibService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\VelibSOAPService\item.disco" />
+    <None Include="Connected Services\MyVelibService\item.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\VelibSOAPService\configuration91.svcinfo" />
+    <None Include="Connected Services\MyVelibService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\VelibSOAPService\configuration.svcinfo" />
+    <None Include="Connected Services\MyVelibService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\VelibSOAPService\Reference.svcmap">
+    <None Include="Connected Services\MyVelibService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
