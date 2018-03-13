@@ -8,13 +8,13 @@ namespace SOAPLibraryVelib
     interface IService
     {
         [OperationContract]
-        List<string> GetStationsNameForCity(string name);
-
-        [OperationContract]
         int GetAvailableBikesForStation(string stationName, string cityName);
 
         [OperationContract]
         List<City> GetCities();
+
+        [OperationContract]
+        List<Station> GetStationsOf(string cityName);
     }
 
     [DataContract]
@@ -28,5 +28,16 @@ namespace SOAPLibraryVelib
         public List<string> Cities { get; set; }
         [DataMember]
         public string Country_code { get; set; }
+    }
+
+    [DataContract]
+    public class Station
+    {
+        [DataMember]
+        public string Name { get; set; }
+        [DataMember]
+        public int Number { get; set; }
+        [DataMember]
+        public int Available_bikes { get; set; }
     }
 }

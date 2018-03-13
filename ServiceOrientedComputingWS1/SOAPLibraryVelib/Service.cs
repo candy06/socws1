@@ -9,29 +9,22 @@ namespace SOAPLibraryVelib
 
         public int GetAvailableBikesForStation(string stationName, string cityName)
         {
-            List<Station> stationsOfCity = rm.GetStationsForCity(cityName);
+            List<Station> stationsOfCity = rm.GetStationsObjForCity(cityName);
             foreach (Station s in stationsOfCity)
             {
-                if (s.name.Equals(stationName)) return s.available_bikes;
+                if (s.Name.Equals(stationName)) return s.Available_bikes;
             }
             return -1;
         }
 
         public List<City> GetCities()
         {
-            List<City> cities = rm.GetCitiesRequest();
-            return cities;
+            return rm.GetCitiesRequest();
         }
 
-        public List<string> GetStationsNameForCity(string name)
+        public List<Station> GetStationsOf(string cityName)
         {
-            List<Station> stations = rm.GetStationsForCity(name);
-            List<string> result = new List<string>();
-            foreach (Station s in stations)
-            {
-                result.Add(s.name);
-            }
-            return result;
+            return rm.GetStationsObjForCity(cityName);
         }
     }
 }

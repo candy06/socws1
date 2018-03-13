@@ -18,7 +18,7 @@ namespace SOAPLibraryVelib
             return cities;
         }
 
-        public List<Station> GetStationsForCity(string cityName)
+        internal List<Station> GetStationsObjForCity(string cityName)
         {
             string responseFromServer = GetResponseFromServer(RequestType.GetStationsOfCityRequest, cityName);
             List<Station> stations = JsonConvert.DeserializeObject<List<Station>>(responseFromServer);

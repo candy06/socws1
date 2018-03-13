@@ -75,6 +75,9 @@
     <None Include="Connected Services\MyVelibService\Client.MyVelibService.City.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\MyVelibService\Client.MyVelibService.Station.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\MyVelibService\item.xsd">
       <SubType>Designer</SubType>
     </None>

@@ -106,15 +106,86 @@ namespace Client.MyVelibService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Station", Namespace="http://schemas.datacontract.org/2004/07/SOAPLibraryVelib")]
+    [System.SerializableAttribute()]
+    public partial class Station : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Available_bikesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Available_bikes {
+            get {
+                return this.Available_bikesField;
+            }
+            set {
+                if ((this.Available_bikesField.Equals(value) != true)) {
+                    this.Available_bikesField = value;
+                    this.RaisePropertyChanged("Available_bikes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Number {
+            get {
+                return this.NumberField;
+            }
+            set {
+                if ((this.NumberField.Equals(value) != true)) {
+                    this.NumberField = value;
+                    this.RaisePropertyChanged("Number");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MyVelibService.IService")]
     public interface IService {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStationsNameForCity", ReplyAction="http://tempuri.org/IService/GetStationsNameForCityResponse")]
-        string[] GetStationsNameForCity(string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStationsNameForCity", ReplyAction="http://tempuri.org/IService/GetStationsNameForCityResponse")]
-        System.Threading.Tasks.Task<string[]> GetStationsNameForCityAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAvailableBikesForStation", ReplyAction="http://tempuri.org/IService/GetAvailableBikesForStationResponse")]
         int GetAvailableBikesForStation(string stationName, string cityName);
@@ -127,6 +198,12 @@ namespace Client.MyVelibService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetCities", ReplyAction="http://tempuri.org/IService/GetCitiesResponse")]
         System.Threading.Tasks.Task<Client.MyVelibService.City[]> GetCitiesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStationsOf", ReplyAction="http://tempuri.org/IService/GetStationsOfResponse")]
+        Client.MyVelibService.Station[] GetStationsOf(string cityName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStationsOf", ReplyAction="http://tempuri.org/IService/GetStationsOfResponse")]
+        System.Threading.Tasks.Task<Client.MyVelibService.Station[]> GetStationsOfAsync(string cityName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -156,14 +233,6 @@ namespace Client.MyVelibService {
                 base(binding, remoteAddress) {
         }
         
-        public string[] GetStationsNameForCity(string name) {
-            return base.Channel.GetStationsNameForCity(name);
-        }
-        
-        public System.Threading.Tasks.Task<string[]> GetStationsNameForCityAsync(string name) {
-            return base.Channel.GetStationsNameForCityAsync(name);
-        }
-        
         public int GetAvailableBikesForStation(string stationName, string cityName) {
             return base.Channel.GetAvailableBikesForStation(stationName, cityName);
         }
@@ -178,6 +247,14 @@ namespace Client.MyVelibService {
         
         public System.Threading.Tasks.Task<Client.MyVelibService.City[]> GetCitiesAsync() {
             return base.Channel.GetCitiesAsync();
+        }
+        
+        public Client.MyVelibService.Station[] GetStationsOf(string cityName) {
+            return base.Channel.GetStationsOf(cityName);
+        }
+        
+        public System.Threading.Tasks.Task<Client.MyVelibService.Station[]> GetStationsOfAsync(string cityName) {
+            return base.Channel.GetStationsOfAsync(cityName);
         }
     }
 }

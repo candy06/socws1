@@ -29,11 +29,11 @@ namespace Client
         private void button2_Click(object sender, EventArgs e)
         {
             stationsList.Items.Clear();
-            string citySelectedName = (string) citiesList.SelectedItem;
-            string[] stationsNames = client.GetStationsNameForCity(citySelectedName);
-            for (int i = 0; i < stationsNames.Length; i++)
+            Station[] stationObjs = client.GetStationsOf((string)citiesList.SelectedItem);
+            int s = stationObjs.Length;
+            for (int i = 0; i < s; i++)
             {
-                stationsList.Items.Add(stationsNames[i]);
+                stationsList.Items.Add(stationObjs[i].Name);
             }
             button2.Enabled = false;
             stationsList.Enabled = true;
@@ -42,7 +42,7 @@ namespace Client
         private void button3_Click(object sender, EventArgs e)
         {
             string city = (string) citiesList.SelectedItem;
-            string station = (string)stationsList.SelectedItem;
+            string station = (string) stationsList.SelectedItem;
             int availableBikes = client.GetAvailableBikesForStation(station, city);
             label1.Text = "Available bikes: " + availableBikes;
             label1.Visible = true;
