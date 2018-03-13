@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace SOAPLibraryVelib
 {
@@ -18,17 +17,12 @@ namespace SOAPLibraryVelib
             return -1;
         }
 
-        public List<string> GetCities()
+        public List<City> GetCities()
         {
             List<City> cities = rm.GetCitiesRequest();
-            List<string> result = new List<string>();
-            foreach (City c in cities)
-            {
-                result.Add(c.name);
-            }
-            return result;
+            return cities;
         }
-       
+
         public List<string> GetStationsNameForCity(string name)
         {
             List<Station> stations = rm.GetStationsForCity(name);

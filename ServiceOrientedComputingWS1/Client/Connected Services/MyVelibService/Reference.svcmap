@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="1a2c51e1-eaf3-4213-bd92-2195e37249d6" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?disco" />
-    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="e602b3bd-b401-411a-9b9d-8ddf10b6f559" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?wsdl" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="ccb510c2-36cf-4c81-a1eb-08ca180c81fb" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd0" />
-    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="6d432d0f-9010-41a7-95fb-64803530e947" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd2" />
     <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="f77dc2fb-750b-4ded-bf90-56e56a8500f2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="ccb510c2-36cf-4c81-a1eb-08ca180c81fb" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd0" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="e36e1542-213e-4ce8-9c35-c886f472b3a1" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd3" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="6d432d0f-9010-41a7-95fb-64803530e947" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?xsd=xsd2" />
+    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="e602b3bd-b401-411a-9b9d-8ddf10b6f559" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="1a2c51e1-eaf3-4213-bd92-2195e37249d6" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/Service/?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

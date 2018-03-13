@@ -16,11 +16,13 @@ namespace Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] cities = client.GetCities();
-            for (int i = 0; i < cities.Length; i++)
+            City[] cityObjects = client.GetCities();
+            int s = cityObjects.Length;
+            for (int i = 0; i < s; i++)
             {
-                citiesList.Items.Add(cities[i]);
+                citiesList.Items.Add(cityObjects[i].Name);
             }
+
             button1.Enabled = false;
         }
 

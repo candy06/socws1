@@ -72,10 +72,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Connected Services\MyVelibService\Client.MyVelibService.City.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\MyVelibService\item.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\MyVelibService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MyVelibService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\MyVelibService\item3.xsd">
