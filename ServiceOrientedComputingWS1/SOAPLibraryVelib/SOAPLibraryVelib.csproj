@@ -53,6 +53,7 @@
     <Compile Include="RequestManager.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="Station.cs" />
+    <Compile Include="URIBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

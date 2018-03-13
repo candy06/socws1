@@ -9,27 +9,49 @@ namespace SOAPLibraryVelib
     {
 
         private const string apiKey = "673d9eadb6a73d453e63b3908acb43dd4f05775b";
+        private URIBuilder uriBuilder = new URIBuilder();
 
         public List<City> GetCitiesRequest()
         {
-            WebRequest request = WebRequest.Create("https://api.jcdecaux.com/vls/v1/contracts?apiKey=" + apiKey);
-            WebResponse response = request.GetResponse();
-            Stream dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string responseFromServer = reader.ReadToEnd();
+            string responseFromServer = GetResponseFromServer(RequestType.GetCitiesRequest);
             List<City> cities = JsonConvert.DeserializeObject<List<City>>(responseFromServer);
             return cities;
         }
 
         public List<Station> GetStationsForCity(string cityName)
         {
-            WebRequest request = WebRequest.Create("https://api.jcdecaux.com/vls/v1/stations?contract=" + cityName + "&apiKey=" + apiKey);
-            WebResponse response = request.GetResponse();
-            Stream dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string responseFromServer = reader.ReadToEnd();
+            string responseFromServer = GetResponseFromServer(RequestType.GetStationsOfCityRequest, cityName);
             List<Station> stations = JsonConvert.DeserializeObject<List<Station>>(responseFromServer);
             return stations;
         }
+
+        private string GetResponseFromServer(RequestType requestType, string cityName = "")
+        {
+            WebRequest request = null;
+            switch (requestType)
+            {
+                case RequestType.GetCitiesRequest:
+                    request = WebRequest.Create(uriBuilder.GenerateURI(URIType.GetCitiesURI, apiKey));
+                    break;
+                case RequestType.GetStationsOfCityRequest:
+                    request = WebRequest.Create(uriBuilder.GenerateURI(URIType.GetStationsOfCityURI, apiKey, cityName));
+                    break;
+                default:
+                    break;
+            }
+            WebResponse response = request.GetResponse();
+            Stream dataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+            return reader.ReadToEnd();
+        }
     }
+
+    enum RequestType
+    {
+        GetCitiesRequest,
+        GetStationInformationRequest,
+        GetStationsRequest,
+        GetStationsOfCityRequest
+    };
+
 }

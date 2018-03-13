@@ -42,7 +42,7 @@ namespace Client
             string city = (string) citiesList.SelectedItem;
             string station = (string)stationsList.SelectedItem;
             int availableBikes = client.GetAvailableBikesForStation(station, city);
-            label1.Text = "Available bikes for the selected station: " + availableBikes;
+            label1.Text = "Available bikes: " + availableBikes;
             label1.Visible = true;
         }
 
