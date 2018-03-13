@@ -61,6 +61,8 @@ namespace Client
         {
             citiesList.Enabled = true;
             selectNewCityButton.Enabled = false;
+
+            label1.Visible = false;
         }
 
         private void stationsList_SelectedIndexChanged(object sender, EventArgs e)
@@ -77,6 +79,8 @@ namespace Client
             selectNewStationButton.Enabled = false;
 
             button3.Enabled = false;
+
+            label1.Visible = false;
         }
     }
 }

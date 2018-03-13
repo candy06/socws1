@@ -36,6 +36,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.selectNewCityButton = new System.Windows.Forms.Button();
             this.selectNewStationButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -80,7 +81,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(524, 184);
+            this.label1.Location = new System.Drawing.Point(547, 262);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 4;
@@ -90,7 +91,7 @@
             // button3
             // 
             this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(515, 118);
+            this.button3.Location = new System.Drawing.Point(587, 199);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(138, 45);
             this.button3.TabIndex = 5;
@@ -120,11 +121,22 @@
             this.selectNewStationButton.UseVisualStyleBackColor = true;
             this.selectNewStationButton.Click += new System.EventHandler(this.selectNewStationButton_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Handwriting", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(105, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(580, 48);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Are you looking for a bike?";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 491);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.selectNewStationButton);
             this.Controls.Add(this.selectNewCityButton);
             this.Controls.Add(this.button3);
@@ -150,6 +162,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button selectNewCityButton;
         private System.Windows.Forms.Button selectNewStationButton;
+        private System.Windows.Forms.Label label2;
     }
 }
 

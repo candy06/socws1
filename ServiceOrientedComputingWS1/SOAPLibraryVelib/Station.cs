@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-namespace SOAPLibraryVelib
+﻿namespace SOAPLibraryVelib
 {
     public class Station
     {
