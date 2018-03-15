@@ -27,14 +27,16 @@ namespace Client
             {
                 citiesList.Items.Add(cityObjects[i].Name);
             }
-            
+
+            label1.Visible = false;
 
             label3.Text = "Execution time of GetCities: " + stopwatch.ElapsedMilliseconds + "ms";
             label3.Visible = true;
 
             citiesList.Enabled = true;
 
-            //button1.Enabled = false;
+            button2.Enabled = false;
+            button3.Enabled = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -48,12 +50,13 @@ namespace Client
             {
                 stationsList.Items.Add(stationObjs[i].Name);
             }
-            
+
+            selectNewStationButton.Enabled = false;
 
             label4.Text = "Execution time of GetStationsOf: " + stopwatch.ElapsedMilliseconds + "ms";
             label4.Visible = true;
 
-            //button2.Enabled = false;
+            button2.Enabled = false;
             stationsList.Enabled = true;
         }
 
@@ -90,6 +93,9 @@ namespace Client
             selectNewCityButton.Enabled = false;
 
             label1.Visible = false;
+
+            button2.Enabled = false;
+            button3.Enabled = false;
         }
 
         private void stationsList_SelectedIndexChanged(object sender, EventArgs e)

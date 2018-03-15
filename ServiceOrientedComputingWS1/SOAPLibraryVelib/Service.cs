@@ -48,14 +48,15 @@ namespace SOAPLibraryVelib
 
         public List<Station> GetStationsOf(string cityName)
         {
-            if (cache.Contains(stationsKey))
-                return (List<Station>)cache.Get(stationsKey);
+            string keyForSpecifiedCity = stationsKey + "For" + cityName;
+            if (cache.Contains(keyForSpecifiedCity))
+                return (List<Station>)cache.Get(keyForSpecifiedCity);
             else
             {
                 List<Station> stations = rm.GetStationsObjForCity(cityName);
                 CacheItemPolicy cacheItemPolicy = new CacheItemPolicy();
                 cacheItemPolicy.AbsoluteExpiration = DateTime.Now.AddMinutes(5);
-                cache.Add(stationsKey, stations, cacheItemPolicy);
+                cache.Add(keyForSpecifiedCity, stations, cacheItemPolicy);
                 return stations;
             }
         }
