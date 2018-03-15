@@ -6,7 +6,7 @@ namespace SOAPLibraryVelib
     {
 
         private RequestManager rm = new RequestManager();
-
+       
         public int GetAvailableBikesForStation(string stationName, string cityName)
         {
             List<Station> stationsOfCity = rm.GetStationsObjForCity(cityName);
