@@ -1,9 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Caching;
 
 namespace SOAPLibraryVelib
 {
     class Service : IService
     {
+        private const string citiesKey = "citiesKey";
+        private const string stationsKey = "stationsKey";
+        private const string availableBikesKey = "availableBikesKey";
+
+        private ObjectCache cache = MemoryCache.Default;
 
         private RequestManager rm = new RequestManager();
        
@@ -19,7 +26,22 @@ namespace SOAPLibraryVelib
 
         public List<City> GetCities()
         {
-            return rm.GetCitiesRequest();
+
+            if (cache.Contains(citiesKey))
+                return (List<City>)cache.Get(citiesKey);
+            else
+            {
+                List<City> cities = rm.GetCitiesRequest();
+
+                // Store data in the cache
+                CacheItemPolicy cacheItemPolicy = new CacheItemPolicy();
+                cacheItemPolicy.AbsoluteExpiration = DateTime.Now.AddMinutes(5);
+                cache.Add(citiesKey, cities, cacheItemPolicy);
+
+                return cities;
+            }
+            
+            //return rm.GetCitiesRequest();
         }
 
         public List<Station> GetStationsOf(string cityName)
