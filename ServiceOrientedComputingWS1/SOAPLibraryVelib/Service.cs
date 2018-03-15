@@ -8,50 +8,58 @@ namespace SOAPLibraryVelib
     {
         private const string citiesKey = "citiesKey";
         private const string stationsKey = "stationsKey";
-        private const string availableBikesKey = "availableBikesKey";
+        private const string availableBikeKey = "availableBikesKey";
 
-        // By default, we don't use cache between IWS and Velib WS
-        private bool useCache = true;
         private ObjectCache cache = MemoryCache.Default;
 
         private RequestManager rm = new RequestManager();
-       
+
         public int GetAvailableBikesForStation(string stationName, string cityName)
         {
-            List<Station> stationsOfCity = rm.GetStationsObjForCity(cityName);
-            foreach (Station s in stationsOfCity)
+            string keyForSpecifiedStation = availableBikeKey + "For" + stationName;
+            if (cache.Contains(keyForSpecifiedStation))
+                return (int)cache.Get(keyForSpecifiedStation);
+            else
             {
-                if (s.Name.Equals(stationName)) return s.Available_bikes;
+                int availableBikes = rm.GetAvailableBikes(stationName, cityName);
+                CacheItemPolicy cacheItemPolicy = new CacheItemPolicy();
+                cacheItemPolicy.AbsoluteExpiration = DateTime.Now.AddMinutes(5);
+                cache.Add(keyForSpecifiedStation, availableBikes, cacheItemPolicy);
+                return availableBikes;
             }
-            return -1;
         }
 
         public List<City> GetCities()
         {
-            if (useCache)
+            if (cache.Contains(citiesKey))
+                return (List<City>)cache.Get(citiesKey);
+            else
             {
-                if (cache.Contains(citiesKey))
-                    return (List<City>)cache.Get(citiesKey);
-                else
-                {
-                    List<City> cities = rm.GetCitiesRequest();
+                List<City> cities = rm.GetCitiesRequest();
 
-                    // Store data in the cache
-                    CacheItemPolicy cacheItemPolicy = new CacheItemPolicy();
-                    cacheItemPolicy.AbsoluteExpiration = DateTime.Now.AddMinutes(5);
-                    cache.Add(citiesKey, cities, cacheItemPolicy);
+                // Store data in the cache
+                CacheItemPolicy cacheItemPolicy = new CacheItemPolicy();
+                cacheItemPolicy.AbsoluteExpiration = DateTime.Now.AddMinutes(5);
+                cache.Add(citiesKey, cities, cacheItemPolicy);
 
-                    return cities;
-                }
+                return cities;
             }
-            
-            return rm.GetCitiesRequest();
         }
 
         public List<Station> GetStationsOf(string cityName)
         {
-            return rm.GetStationsObjForCity(cityName);
+            if (cache.Contains(stationsKey))
+                return (List<Station>)cache.Get(stationsKey);
+            else
+            {
+                List<Station> stations = rm.GetStationsObjForCity(cityName);
+                CacheItemPolicy cacheItemPolicy = new CacheItemPolicy();
+                cacheItemPolicy.AbsoluteExpiration = DateTime.Now.AddMinutes(5);
+                cache.Add(stationsKey, stations, cacheItemPolicy);
+                return stations;
+            }
         }
-        
+
     }
+
 }

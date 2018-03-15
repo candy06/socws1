@@ -18,6 +18,16 @@ namespace SOAPLibraryVelib
             return cities;
         }
 
+        public int GetAvailableBikes(string stationName, string cityName)
+        {
+            List<Station> stationsOfCity = GetStationsObjForCity(cityName);
+            foreach (Station s in stationsOfCity)
+            {
+                if (s.Name.Equals(stationName)) return s.Available_bikes;
+            }
+            return -1;
+        }
+
         internal List<Station> GetStationsObjForCity(string cityName)
         {
             string responseFromServer = GetResponseFromServer(RequestType.GetStationsOfCityRequest, cityName);
