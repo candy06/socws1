@@ -37,12 +37,14 @@
             this.selectNewCityButton = new System.Windows.Forms.Button();
             this.selectNewStationButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Bodoni MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(28, 118);
+            this.button1.Location = new System.Drawing.Point(28, 143);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(165, 50);
             this.button1.TabIndex = 0;
@@ -53,7 +55,7 @@
             // citiesList
             // 
             this.citiesList.FormattingEnabled = true;
-            this.citiesList.Location = new System.Drawing.Point(28, 174);
+            this.citiesList.Location = new System.Drawing.Point(28, 248);
             this.citiesList.Name = "citiesList";
             this.citiesList.Size = new System.Drawing.Size(165, 238);
             this.citiesList.TabIndex = 1;
@@ -106,7 +108,7 @@
             // selectNewCityButton
             // 
             this.selectNewCityButton.Enabled = false;
-            this.selectNewCityButton.Location = new System.Drawing.Point(28, 418);
+            this.selectNewCityButton.Location = new System.Drawing.Point(28, 492);
             this.selectNewCityButton.Name = "selectNewCityButton";
             this.selectNewCityButton.Size = new System.Drawing.Size(161, 23);
             this.selectNewCityButton.TabIndex = 6;
@@ -135,11 +137,34 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Are you looking for a bike?";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(28, 215);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(165, 23);
+            this.button4.TabIndex = 9;
+            this.button4.Text = "Clear";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(39, 196);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 16);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "label3";
+            this.label3.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 491);
+            this.ClientSize = new System.Drawing.Size(896, 527);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.selectNewStationButton);
             this.Controls.Add(this.selectNewCityButton);
@@ -167,6 +192,8 @@
         private System.Windows.Forms.Button selectNewCityButton;
         private System.Windows.Forms.Button selectNewStationButton;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label3;
     }
 }
 

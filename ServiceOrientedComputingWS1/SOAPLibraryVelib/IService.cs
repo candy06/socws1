@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 
@@ -16,6 +15,7 @@ namespace SOAPLibraryVelib
 
         [OperationContract]
         List<Station> GetStationsOf(string cityName);
+
     }
 
     [DataContract]

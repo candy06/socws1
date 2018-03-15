@@ -1,5 +1,6 @@
 ﻿using Client.MyVelibService;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Client
@@ -16,14 +17,21 @@ namespace Client
 
         private void button1_Click(object sender, EventArgs e)
         {
+            citiesList.Items.Clear();
+
+            Stopwatch stopwatch = Stopwatch.StartNew();
             City[] cityObjects = client.GetCities();
             int s = cityObjects.Length;
             for (int i = 0; i < s; i++)
             {
                 citiesList.Items.Add(cityObjects[i].Name);
             }
+            stopwatch.Stop();
 
-            button1.Enabled = false;
+            label3.Text = "Execution time: " + stopwatch.ElapsedMilliseconds + "ms";
+            label3.Visible = true;
+
+            //button1.Enabled = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -83,6 +91,12 @@ namespace Client
             button3.Enabled = false;
 
             label1.Visible = false;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            citiesList.Items.Clear();
+            label3.Visible = false;
         }
     }
 }
