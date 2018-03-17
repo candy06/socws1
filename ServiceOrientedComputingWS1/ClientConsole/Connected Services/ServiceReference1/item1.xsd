@@ -42,17 +42,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetConnectedClients">
+  <xs:element name="GetAllStations">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="_accessCode" type="xs:int" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetConnectedClientsResponse">
+  <xs:element name="GetAllStationsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetConnectedClientsResult" type="xs:int" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SOAPLibraryVelib" minOccurs="0" name="GetAllStationsResult" nillable="true" type="q3:ArrayOfStation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

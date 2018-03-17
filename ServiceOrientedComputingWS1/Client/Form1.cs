@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace Client
 {
+
     public partial class Form1 : Form
     {
 
@@ -43,12 +44,12 @@ namespace Client
         {
             stationsList.Items.Clear();
             Stopwatch stopwatch = Stopwatch.StartNew();
-            Station[] stationObjs = client.GetStationsOf((string)citiesList.SelectedItem);
+            Station[] stations = client.GetStationsOf((string)citiesList.SelectedItem);
             stopwatch.Stop();
-            int s = stationObjs.Length;
+            int s = stations.Length;
             for (int i = 0; i < s; i++)
             {
-                stationsList.Items.Add(stationObjs[i].Name);
+                stationsList.Items.Add(stations[i].Name);
             }
 
             selectNewStationButton.Enabled = false;

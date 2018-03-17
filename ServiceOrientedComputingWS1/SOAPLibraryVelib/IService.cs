@@ -15,6 +15,12 @@ namespace SOAPLibraryVelib
 
         [OperationContract]
         List<Station> GetStationsOf(string cityName);
+
+        [OperationContract]
+        List<Station> GetAllStations();
+
+        [OperationContract]
+        Station GetInformations(int stationNumber, string city);
     }
 
     [DataContract]

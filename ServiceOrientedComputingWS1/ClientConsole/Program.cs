@@ -1,6 +1,5 @@
-﻿using ClientConsole.VelibService;
+﻿using ClientConsole.ServiceReference1;
 using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace ClientConsole

@@ -9,13 +9,15 @@ namespace SOAPLibraryVelib
         private const string citiesKey = "citiesKey";
         private const string stationsKey = "stationsKey";
         private const string availableBikeKey = "availableBikesKey";
-        private const int accessCodeForMonitoring = 1234;
 
         private ObjectCache cache = MemoryCache.Default;
 
         private RequestManager rm = new RequestManager();
 
-        // About velib services
+        public List<Station> GetAllStations()
+        {
+            return rm.GetAllStations();
+        }
 
         public int GetAvailableBikesForStation(string stationName, string cityName)
         {
@@ -60,6 +62,11 @@ namespace SOAPLibraryVelib
 
             Monitor.RemoveClient();
             return cities;
+        }
+
+        public Station GetInformations(int stationNumber, string city)
+        {
+            return rm.GetInformations(stationNumber, city);
         }
 
         public List<Station> GetStationsOf(string cityName)

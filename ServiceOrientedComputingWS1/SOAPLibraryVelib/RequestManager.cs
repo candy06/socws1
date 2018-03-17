@@ -10,6 +10,22 @@ namespace SOAPLibraryVelib
 
         private const string apiKey = "673d9eadb6a73d453e63b3908acb43dd4f05775b";
         private URIBuilder uriBuilder = new URIBuilder();
+
+        public Station GetInformations(int stationNumber, string cityName)
+        {
+            Monitor.AddServerRequest(ServerRequest.GetStationInformationRequest);
+            string responseFromServer = GetResponseFromServer(ServerRequest.GetStationInformationRequest, cityName, stationNumber);
+            Station station = JsonConvert.DeserializeObject<Station>(responseFromServer);
+            return station;
+        }
+
+        public List<Station> GetAllStations()
+        {
+            Monitor.AddServerRequest(ServerRequest.GetStationsRequest);
+            string responseFromServer = GetResponseFromServer(ServerRequest.GetStationsRequest);
+            List<Station> stations = JsonConvert.DeserializeObject<List<Station>>(responseFromServer);
+            return stations;
+        }
  
         public List<City> GetCitiesRequest()
         {
@@ -39,7 +55,7 @@ namespace SOAPLibraryVelib
             return stations;
         }
 
-        private string GetResponseFromServer(ServerRequest requestType, string cityName = "")
+        private string GetResponseFromServer(ServerRequest requestType, string cityName = "", int stationNumber = 0)
         {
             WebRequest request = null;
             switch (requestType)
@@ -49,6 +65,12 @@ namespace SOAPLibraryVelib
                     break;
                 case ServerRequest.GetStationsOfCityRequest:
                     request = WebRequest.Create(uriBuilder.GenerateURI(URIType.GetStationsOfCityURI, apiKey, cityName));
+                    break;
+                case ServerRequest.GetStationsRequest:
+                    request = WebRequest.Create(uriBuilder.GenerateURI(URIType.GetStationsURI, apiKey));
+                    break;
+                case ServerRequest.GetStationInformationRequest:
+                    request = WebRequest.Create(uriBuilder.GenerateURI(URIType.GetStationInformationURI, apiKey, cityName, stationNumber));
                     break;
                 default:
                     break;

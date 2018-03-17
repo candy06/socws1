@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClientConsole.VelibService {
+namespace ClientConsole.ServiceReference1 {
     using System.Runtime.Serialization;
     using System;
     
@@ -184,7 +184,7 @@ namespace ClientConsole.VelibService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="VelibService.IService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService")]
     public interface IService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAvailableBikesForStation", ReplyAction="http://tempuri.org/IService/GetAvailableBikesForStationResponse")]
@@ -194,31 +194,31 @@ namespace ClientConsole.VelibService {
         System.Threading.Tasks.Task<int> GetAvailableBikesForStationAsync(string stationName, string cityName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetCities", ReplyAction="http://tempuri.org/IService/GetCitiesResponse")]
-        ClientConsole.VelibService.City[] GetCities();
+        ClientConsole.ServiceReference1.City[] GetCities();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetCities", ReplyAction="http://tempuri.org/IService/GetCitiesResponse")]
-        System.Threading.Tasks.Task<ClientConsole.VelibService.City[]> GetCitiesAsync();
+        System.Threading.Tasks.Task<ClientConsole.ServiceReference1.City[]> GetCitiesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStationsOf", ReplyAction="http://tempuri.org/IService/GetStationsOfResponse")]
-        ClientConsole.VelibService.Station[] GetStationsOf(string cityName);
+        ClientConsole.ServiceReference1.Station[] GetStationsOf(string cityName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStationsOf", ReplyAction="http://tempuri.org/IService/GetStationsOfResponse")]
-        System.Threading.Tasks.Task<ClientConsole.VelibService.Station[]> GetStationsOfAsync(string cityName);
+        System.Threading.Tasks.Task<ClientConsole.ServiceReference1.Station[]> GetStationsOfAsync(string cityName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetConnectedClients", ReplyAction="http://tempuri.org/IService/GetConnectedClientsResponse")]
-        int GetConnectedClients(int _accessCode);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStations", ReplyAction="http://tempuri.org/IService/GetAllStationsResponse")]
+        ClientConsole.ServiceReference1.Station[] GetAllStations();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetConnectedClients", ReplyAction="http://tempuri.org/IService/GetConnectedClientsResponse")]
-        System.Threading.Tasks.Task<int> GetConnectedClientsAsync(int _accessCode);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStations", ReplyAction="http://tempuri.org/IService/GetAllStationsResponse")]
+        System.Threading.Tasks.Task<ClientConsole.ServiceReference1.Station[]> GetAllStationsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceChannel : ClientConsole.VelibService.IService, System.ServiceModel.IClientChannel {
+    public interface IServiceChannel : ClientConsole.ServiceReference1.IService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceClient : System.ServiceModel.ClientBase<ClientConsole.VelibService.IService>, ClientConsole.VelibService.IService {
+    public partial class ServiceClient : System.ServiceModel.ClientBase<ClientConsole.ServiceReference1.IService>, ClientConsole.ServiceReference1.IService {
         
         public ServiceClient() {
         }
@@ -247,28 +247,28 @@ namespace ClientConsole.VelibService {
             return base.Channel.GetAvailableBikesForStationAsync(stationName, cityName);
         }
         
-        public ClientConsole.VelibService.City[] GetCities() {
+        public ClientConsole.ServiceReference1.City[] GetCities() {
             return base.Channel.GetCities();
         }
         
-        public System.Threading.Tasks.Task<ClientConsole.VelibService.City[]> GetCitiesAsync() {
+        public System.Threading.Tasks.Task<ClientConsole.ServiceReference1.City[]> GetCitiesAsync() {
             return base.Channel.GetCitiesAsync();
         }
         
-        public ClientConsole.VelibService.Station[] GetStationsOf(string cityName) {
+        public ClientConsole.ServiceReference1.Station[] GetStationsOf(string cityName) {
             return base.Channel.GetStationsOf(cityName);
         }
         
-        public System.Threading.Tasks.Task<ClientConsole.VelibService.Station[]> GetStationsOfAsync(string cityName) {
+        public System.Threading.Tasks.Task<ClientConsole.ServiceReference1.Station[]> GetStationsOfAsync(string cityName) {
             return base.Channel.GetStationsOfAsync(cityName);
         }
         
-        public int GetConnectedClients(int _accessCode) {
-            return base.Channel.GetConnectedClients(_accessCode);
+        public ClientConsole.ServiceReference1.Station[] GetAllStations() {
+            return base.Channel.GetAllStations();
         }
         
-        public System.Threading.Tasks.Task<int> GetConnectedClientsAsync(int _accessCode) {
-            return base.Channel.GetConnectedClientsAsync(_accessCode);
+        public System.Threading.Tasks.Task<ClientConsole.ServiceReference1.Station[]> GetAllStationsAsync() {
+            return base.Channel.GetAllStationsAsync();
         }
     }
 }
