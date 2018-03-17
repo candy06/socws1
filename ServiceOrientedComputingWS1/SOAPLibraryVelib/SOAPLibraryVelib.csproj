@@ -48,6 +48,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientRequest.cs" />
     <Compile Include="IMonitorService.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Monitor.cs" />

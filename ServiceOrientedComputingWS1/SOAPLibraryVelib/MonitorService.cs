@@ -5,15 +5,20 @@ namespace SOAPLibraryVelib
     {
         private RequestManager rm = new RequestManager();
 
-        // About monitoring
-
         public int GetConnectedClients()
         {
             return rm.GetConnectedClient();
         }
 
+        public int GetNumberOfClientRequests(ClientRequest request)
+        {
+            return rm.GetNumberOfClientRequest(request);
+        }
 
-
+        public int GetNumberOfServerRequestsToVelibWS()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
 }

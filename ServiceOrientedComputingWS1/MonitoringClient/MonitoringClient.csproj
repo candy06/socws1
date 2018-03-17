@@ -78,6 +78,9 @@
     <None Include="Connected Services\MonitorService\item1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\MonitorService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\MonitorService\MonitorService.wsdl" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -28,7 +28,7 @@ namespace SOAPLibraryVelib
             return -1;
         }
 
-        internal List<Station> GetStationsObjForCity(string cityName)
+        public List<Station> GetStationsObjForCity(string cityName)
         {
             string responseFromServer = GetResponseFromServer(RequestType.GetStationsOfCityRequest, cityName);
             List<Station> stations = JsonConvert.DeserializeObject<List<Station>>(responseFromServer);
@@ -58,6 +58,11 @@ namespace SOAPLibraryVelib
         public int GetConnectedClient()
         {
             return Monitor.ConnectedClients;
+        }
+
+        public int GetNumberOfClientRequest(ClientRequest clientRequest)
+        {
+            return Monitor.HowMany(clientRequest);
         }
 
     }

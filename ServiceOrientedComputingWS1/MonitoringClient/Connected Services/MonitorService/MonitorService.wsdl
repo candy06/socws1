@@ -4,6 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/MonitorService/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/MonitorService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/SOAPLibraryVelib/MonitorService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SOAPLibraryVelib" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IMonitorService_GetConnectedClients_InputMessage">
@@ -12,16 +13,54 @@
   <wsdl:message name="IMonitorService_GetConnectedClients_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetConnectedClientsResponse" />
   </wsdl:message>
+  <wsdl:message name="IMonitorService_GetNumberOfClientRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumberOfClientRequests" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorService_GetNumberOfClientRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumberOfClientRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorService_GetNumberOfServerRequestsToVelibWS_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumberOfServerRequestsToVelibWS" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorService_GetNumberOfServerRequestsToVelibWS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumberOfServerRequestsToVelibWSResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMonitorService">
     <wsdl:operation name="GetConnectedClients">
       <wsdl:input wsaw:Action="http://tempuri.org/IMonitorService/GetConnectedClients" message="tns:IMonitorService_GetConnectedClients_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMonitorService/GetConnectedClientsResponse" message="tns:IMonitorService_GetConnectedClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberOfClientRequests">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorService/GetNumberOfClientRequests" message="tns:IMonitorService_GetNumberOfClientRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorService/GetNumberOfClientRequestsResponse" message="tns:IMonitorService_GetNumberOfClientRequests_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberOfServerRequestsToVelibWS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWS" message="tns:IMonitorService_GetNumberOfServerRequestsToVelibWS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWSResponse" message="tns:IMonitorService_GetNumberOfServerRequestsToVelibWS_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMonitorService" type="tns:IMonitorService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetConnectedClients">
       <soap:operation soapAction="http://tempuri.org/IMonitorService/GetConnectedClients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberOfClientRequests">
+      <soap:operation soapAction="http://tempuri.org/IMonitorService/GetNumberOfClientRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberOfServerRequestsToVelibWS">
+      <soap:operation soapAction="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWS" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

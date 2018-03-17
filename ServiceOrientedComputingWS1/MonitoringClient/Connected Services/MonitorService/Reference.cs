@@ -9,7 +9,22 @@
 //------------------------------------------------------------------------------
 
 namespace MonitoringClient.MonitorService {
+    using System.Runtime.Serialization;
     
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ClientRequest", Namespace="http://schemas.datacontract.org/2004/07/SOAPLibraryVelib")]
+    public enum ClientRequest : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetCities = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetAvailableBikes = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetStationsForCity = 2,
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MonitorService.IMonitorService")]
@@ -20,6 +35,18 @@ namespace MonitoringClient.MonitorService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonitorService/GetConnectedClients", ReplyAction="http://tempuri.org/IMonitorService/GetConnectedClientsResponse")]
         System.Threading.Tasks.Task<int> GetConnectedClientsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonitorService/GetNumberOfClientRequests", ReplyAction="http://tempuri.org/IMonitorService/GetNumberOfClientRequestsResponse")]
+        int GetNumberOfClientRequests(MonitoringClient.MonitorService.ClientRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonitorService/GetNumberOfClientRequests", ReplyAction="http://tempuri.org/IMonitorService/GetNumberOfClientRequestsResponse")]
+        System.Threading.Tasks.Task<int> GetNumberOfClientRequestsAsync(MonitoringClient.MonitorService.ClientRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWS", ReplyAction="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWSResponse")]
+        int GetNumberOfServerRequestsToVelibWS();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWS", ReplyAction="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWSResponse")]
+        System.Threading.Tasks.Task<int> GetNumberOfServerRequestsToVelibWSAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +82,22 @@ namespace MonitoringClient.MonitorService {
         
         public System.Threading.Tasks.Task<int> GetConnectedClientsAsync() {
             return base.Channel.GetConnectedClientsAsync();
+        }
+        
+        public int GetNumberOfClientRequests(MonitoringClient.MonitorService.ClientRequest request) {
+            return base.Channel.GetNumberOfClientRequests(request);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetNumberOfClientRequestsAsync(MonitoringClient.MonitorService.ClientRequest request) {
+            return base.Channel.GetNumberOfClientRequestsAsync(request);
+        }
+        
+        public int GetNumberOfServerRequestsToVelibWS() {
+            return base.Channel.GetNumberOfServerRequestsToVelibWS();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetNumberOfServerRequestsToVelibWSAsync() {
+            return base.Channel.GetNumberOfServerRequestsToVelibWSAsync();
         }
     }
 }
