@@ -10,7 +10,7 @@ namespace SOAPLibraryVelib
 
         private const string apiKey = "673d9eadb6a73d453e63b3908acb43dd4f05775b";
         private URIBuilder uriBuilder = new URIBuilder();
-
+ 
         public List<City> GetCitiesRequest()
         {
             string responseFromServer = GetResponseFromServer(RequestType.GetCitiesRequest);
@@ -54,6 +54,12 @@ namespace SOAPLibraryVelib
             StreamReader reader = new StreamReader(dataStream);
             return reader.ReadToEnd();
         }
+
+        public int GetConnectedClient()
+        {
+            return Monitor.ConnectedClients;
+        }
+
     }
 
     enum RequestType

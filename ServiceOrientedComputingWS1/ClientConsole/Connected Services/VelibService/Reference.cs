@@ -204,6 +204,12 @@ namespace ClientConsole.VelibService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStationsOf", ReplyAction="http://tempuri.org/IService/GetStationsOfResponse")]
         System.Threading.Tasks.Task<ClientConsole.VelibService.Station[]> GetStationsOfAsync(string cityName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetConnectedClients", ReplyAction="http://tempuri.org/IService/GetConnectedClientsResponse")]
+        int GetConnectedClients(int _accessCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetConnectedClients", ReplyAction="http://tempuri.org/IService/GetConnectedClientsResponse")]
+        System.Threading.Tasks.Task<int> GetConnectedClientsAsync(int _accessCode);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -255,6 +261,14 @@ namespace ClientConsole.VelibService {
         
         public System.Threading.Tasks.Task<ClientConsole.VelibService.Station[]> GetStationsOfAsync(string cityName) {
             return base.Channel.GetStationsOfAsync(cityName);
+        }
+        
+        public int GetConnectedClients(int _accessCode) {
+            return base.Channel.GetConnectedClients(_accessCode);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetConnectedClientsAsync(int _accessCode) {
+            return base.Channel.GetConnectedClientsAsync(_accessCode);
         }
     }
 }

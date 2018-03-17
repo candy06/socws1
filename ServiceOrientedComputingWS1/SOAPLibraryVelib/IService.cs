@@ -16,6 +16,8 @@ namespace SOAPLibraryVelib
         [OperationContract]
         List<Station> GetStationsOf(string cityName);
 
+        [OperationContract]
+        int GetConnectedClients(int _accessCode);
     }
 
     [DataContract]
