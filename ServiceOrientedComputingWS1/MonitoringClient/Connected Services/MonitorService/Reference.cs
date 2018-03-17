@@ -26,6 +26,23 @@ namespace MonitoringClient.MonitorService {
         GetStationsForCity = 2,
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServerRequest", Namespace="http://schemas.datacontract.org/2004/07/SOAPLibraryVelib")]
+    public enum ServerRequest : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetCitiesRequest = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetStationInformationRequest = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetStationsRequest = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetStationsOfCityRequest = 3,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MonitorService.IMonitorService")]
     public interface IMonitorService {
@@ -43,10 +60,10 @@ namespace MonitoringClient.MonitorService {
         System.Threading.Tasks.Task<int> GetNumberOfClientRequestsAsync(MonitoringClient.MonitorService.ClientRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWS", ReplyAction="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWSResponse")]
-        int GetNumberOfServerRequestsToVelibWS();
+        int GetNumberOfServerRequestsToVelibWS(MonitoringClient.MonitorService.ServerRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWS", ReplyAction="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWSResponse")]
-        System.Threading.Tasks.Task<int> GetNumberOfServerRequestsToVelibWSAsync();
+        System.Threading.Tasks.Task<int> GetNumberOfServerRequestsToVelibWSAsync(MonitoringClient.MonitorService.ServerRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -92,12 +109,12 @@ namespace MonitoringClient.MonitorService {
             return base.Channel.GetNumberOfClientRequestsAsync(request);
         }
         
-        public int GetNumberOfServerRequestsToVelibWS() {
-            return base.Channel.GetNumberOfServerRequestsToVelibWS();
+        public int GetNumberOfServerRequestsToVelibWS(MonitoringClient.MonitorService.ServerRequest request) {
+            return base.Channel.GetNumberOfServerRequestsToVelibWS(request);
         }
         
-        public System.Threading.Tasks.Task<int> GetNumberOfServerRequestsToVelibWSAsync() {
-            return base.Channel.GetNumberOfServerRequestsToVelibWSAsync();
+        public System.Threading.Tasks.Task<int> GetNumberOfServerRequestsToVelibWSAsync(MonitoringClient.MonitorService.ServerRequest request) {
+            return base.Channel.GetNumberOfServerRequestsToVelibWSAsync(request);
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Runtime.Caching;
 
 namespace SOAPLibraryVelib
@@ -15,15 +14,6 @@ namespace SOAPLibraryVelib
         private ObjectCache cache = MemoryCache.Default;
 
         private RequestManager rm = new RequestManager();
-
-        // About monitoring
-
-        public int GetConnectedClients(int _accessCode)
-        {
-            if (_accessCode == accessCodeForMonitoring)
-                return rm.GetConnectedClient();
-            else return -1;
-        }
 
         // About velib services
 

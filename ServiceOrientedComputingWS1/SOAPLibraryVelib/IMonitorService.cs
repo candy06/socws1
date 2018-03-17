@@ -12,7 +12,7 @@ namespace SOAPLibraryVelib
         int GetNumberOfClientRequests(ClientRequest request);
 
         [OperationContract]
-        int GetNumberOfServerRequestsToVelibWS();
+        int GetNumberOfServerRequestsToVelibWS(ServerRequest request);
     }
 
 

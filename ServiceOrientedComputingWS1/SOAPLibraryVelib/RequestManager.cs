@@ -13,14 +13,17 @@ namespace SOAPLibraryVelib
  
         public List<City> GetCitiesRequest()
         {
-            string responseFromServer = GetResponseFromServer(RequestType.GetCitiesRequest);
+            Monitor.AddServerRequest(ServerRequest.GetCitiesRequest);
+            string responseFromServer = GetResponseFromServer(ServerRequest.GetCitiesRequest);
             List<City> cities = JsonConvert.DeserializeObject<List<City>>(responseFromServer);
             return cities;
         }
 
         public int GetAvailableBikes(string stationName, string cityName)
         {
-            List<Station> stationsOfCity = GetStationsObjForCity(cityName);
+            Monitor.AddServerRequest(ServerRequest.GetStationsOfCityRequest);
+            string responseFromServer = GetResponseFromServer(ServerRequest.GetStationsOfCityRequest, cityName);
+            List<Station> stationsOfCity = JsonConvert.DeserializeObject<List<Station>>(responseFromServer);
             foreach (Station s in stationsOfCity)
             {
                 if (s.Name.Equals(stationName)) return s.Available_bikes;
@@ -30,20 +33,21 @@ namespace SOAPLibraryVelib
 
         public List<Station> GetStationsObjForCity(string cityName)
         {
-            string responseFromServer = GetResponseFromServer(RequestType.GetStationsOfCityRequest, cityName);
+            Monitor.AddServerRequest(ServerRequest.GetStationsOfCityRequest);
+            string responseFromServer = GetResponseFromServer(ServerRequest.GetStationsOfCityRequest, cityName);
             List<Station> stations = JsonConvert.DeserializeObject<List<Station>>(responseFromServer);
             return stations;
         }
 
-        private string GetResponseFromServer(RequestType requestType, string cityName = "")
+        private string GetResponseFromServer(ServerRequest requestType, string cityName = "")
         {
             WebRequest request = null;
             switch (requestType)
             {
-                case RequestType.GetCitiesRequest:
+                case ServerRequest.GetCitiesRequest:
                     request = WebRequest.Create(uriBuilder.GenerateURI(URIType.GetCitiesURI, apiKey));
                     break;
-                case RequestType.GetStationsOfCityRequest:
+                case ServerRequest.GetStationsOfCityRequest:
                     request = WebRequest.Create(uriBuilder.GenerateURI(URIType.GetStationsOfCityURI, apiKey, cityName));
                     break;
                 default:
@@ -65,9 +69,14 @@ namespace SOAPLibraryVelib
             return Monitor.HowMany(clientRequest);
         }
 
+        public int GetNumberOfServerRequest(ServerRequest serverRequest)
+        {
+            return Monitor.HowMany(serverRequest);
+        }
+
     }
 
-    enum RequestType
+    enum ServerRequest
     {
         GetCitiesRequest,
         GetStationInformationRequest,

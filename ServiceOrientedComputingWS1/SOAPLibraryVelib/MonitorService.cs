@@ -15,9 +15,9 @@ namespace SOAPLibraryVelib
             return rm.GetNumberOfClientRequest(request);
         }
 
-        public int GetNumberOfServerRequestsToVelibWS()
+        public int GetNumberOfServerRequestsToVelibWS(ServerRequest request)
         {
-            throw new System.NotImplementedException();
+            return rm.GetNumberOfServerRequest(request);
         }
     }
 

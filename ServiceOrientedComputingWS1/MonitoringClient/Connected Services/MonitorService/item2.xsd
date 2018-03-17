@@ -8,4 +8,13 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="ClientRequest" nillable="true" type="tns:ClientRequest" />
+  <xs:simpleType name="ServerRequest">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GetCitiesRequest" />
+      <xs:enumeration value="GetStationInformationRequest" />
+      <xs:enumeration value="GetStationsRequest" />
+      <xs:enumeration value="GetStationsOfCityRequest" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServerRequest" nillable="true" type="tns:ServerRequest" />
 </xs:schema>

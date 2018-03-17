@@ -47,5 +47,35 @@ namespace MonitoringClient
                 label3.Text = clientRequestSelected + " called " + n + " times.";
             label3.Visible = true;
         }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string serverRequestSelected = listBox2.SelectedItem.ToString();
+            int n;
+            switch (serverRequestSelected)
+            {
+                case "StationInfo":
+                    n = client.GetNumberOfServerRequestsToVelibWS(ServerRequest.GetStationInformationRequest);
+                    break;
+                case "StationsList":
+                    n = client.GetNumberOfServerRequestsToVelibWS(ServerRequest.GetStationsRequest);
+                    break;
+                case "StationsOfGivenCity":
+                    n = client.GetNumberOfServerRequestsToVelibWS(ServerRequest.GetStationsOfCityRequest);
+                    break;
+                case "CitiesList":
+                    n = client.GetNumberOfServerRequestsToVelibWS(ServerRequest.GetCitiesRequest);
+                    break;
+                default:
+                    n = -1;
+                    break;
+
+            }
+            if (n == -1)
+                label4.Text = "Error...";
+            else
+                label4.Text = serverRequestSelected + " called " + n + " times.";
+            label4.Visible = true;
+        }
     }
 }
