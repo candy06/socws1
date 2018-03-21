@@ -5,6 +5,11 @@ namespace SOAPLibraryVelib
     {
         private RequestManager rm = new RequestManager();
 
+        public long GetAverageExecutionTime(ClientRequest request)
+        {
+            return rm.GetAverageExecutionTimeOf(request);
+        }
+
         public int GetConnectedClients()
         {
             return rm.GetConnectedClient();

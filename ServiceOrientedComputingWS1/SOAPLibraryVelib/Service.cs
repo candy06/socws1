@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.Caching;
 
 namespace SOAPLibraryVelib
@@ -21,8 +22,12 @@ namespace SOAPLibraryVelib
 
         public int GetAvailableBikesForStation(string stationName, string cityName)
         {
+            // Start counting the execution time of the function
+            Stopwatch stopwatch = Stopwatch.StartNew();
             Monitor.AddClient();
             Monitor.AddClientRequest(ClientRequest.GetAvailableBikes);
+            
+            
 
             string keyForSpecifiedStation = availableBikeKey + "For" + stationName;
 
@@ -39,12 +44,15 @@ namespace SOAPLibraryVelib
             }
 
             Monitor.RemoveClient();
+
+            stopwatch.Stop();
+            Monitor.AddExecutionTime(ClientRequest.GetAvailableBikes, stopwatch.ElapsedMilliseconds);
             return availableBikes;
         }
 
         public List<City> GetCities()
         {
-
+            Stopwatch stopwatch = Stopwatch.StartNew();
             Monitor.AddClient();
             Monitor.AddClientRequest(ClientRequest.GetCities);
 
@@ -61,6 +69,9 @@ namespace SOAPLibraryVelib
             }
 
             Monitor.RemoveClient();
+
+            stopwatch.Stop();
+            Monitor.AddExecutionTime(ClientRequest.GetCities, stopwatch.ElapsedMilliseconds);
             return cities;
         }
 
@@ -71,7 +82,7 @@ namespace SOAPLibraryVelib
 
         public List<Station> GetStationsOf(string cityName)
         {
-
+            Stopwatch stopwatch = Stopwatch.StartNew();
             Monitor.AddClient();
             Monitor.AddClientRequest(ClientRequest.GetStationsForCity);
 
@@ -90,6 +101,9 @@ namespace SOAPLibraryVelib
             }
 
             Monitor.RemoveClient();
+
+            stopwatch.Stop();
+            Monitor.AddExecutionTime(ClientRequest.GetStationsForCity, stopwatch.ElapsedMilliseconds);
             return stations;
         }
 

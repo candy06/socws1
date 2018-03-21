@@ -14,68 +14,28 @@ namespace MonitoringClient
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            int numberOfConnectedClients = client.GetConnectedClients();
-            label2.Text = "Connected clients: " + numberOfConnectedClients;
-            label2.Visible = true;
+            updateCharts();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void updateCharts()
         {
-            string clientRequestSelected = listBox1.SelectedItem.ToString();
-            int n;
-            switch (clientRequestSelected)
-            {
-                case "GetCities":
-                    n = client.GetNumberOfClientRequests(ClientRequest.GetCities);
-                    break;
-                case "GetStations":
-                    n = client.GetNumberOfClientRequests(ClientRequest.GetStationsForCity);
-                    break;
-                case "GetAvailableBikes":
-                    n = client.GetNumberOfClientRequests(ClientRequest.GetAvailableBikes);
-                    break;
-                default:
-                    n = -1;
-                    break;
-
-            }
-            if (n == -1)
-                label3.Text = "Error...";
-            else
-                label3.Text = clientRequestSelected + " called " + n + " times.";
-            label3.Visible = true;
-        }
-
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string serverRequestSelected = listBox2.SelectedItem.ToString();
-            int n;
-            switch (serverRequestSelected)
-            {
-                case "StationInfo":
-                    n = client.GetNumberOfServerRequestsToVelibWS(ServerRequest.GetStationInformationRequest);
-                    break;
-                case "StationsList":
-                    n = client.GetNumberOfServerRequestsToVelibWS(ServerRequest.GetStationsRequest);
-                    break;
-                case "StationsOfGivenCity":
-                    n = client.GetNumberOfServerRequestsToVelibWS(ServerRequest.GetStationsOfCityRequest);
-                    break;
-                case "CitiesList":
-                    n = client.GetNumberOfServerRequestsToVelibWS(ServerRequest.GetCitiesRequest);
-                    break;
-                default:
-                    n = -1;
-                    break;
-
-            }
-            if (n == -1)
-                label4.Text = "Error...";
-            else
-                label4.Text = serverRequestSelected + " called " + n + " times.";
-            label4.Visible = true;
+            // Fill the fist chart with client requests
+            chart1.Series["GetCities"].Points.AddXY(DateTime.Now.ToString("HH:mm:ss tt"), client.GetNumberOfClientRequests(ClientRequest.GetCities));
+            chart1.Series["GetStations"].Points.AddXY(DateTime.Now.ToString("HH:mm:ss tt"), client.GetNumberOfClientRequests(ClientRequest.GetStationsForCity));
+            chart1.Series["GetAvailableBikes"].Points.AddXY(DateTime.Now.ToString("HH:mm:ss tt"), client.GetNumberOfClientRequests(ClientRequest.GetAvailableBikes));
+            // Fill the second chart with requests to Velib WS
+            chart2.Series["StationInfo"].Points.AddXY(DateTime.Now.ToString("HH:mm:ss tt"), client.GetNumberOfServerRequestsToVelibWS(ServerRequest.GetStationInformationRequest));
+            chart2.Series["StationsList"].Points.AddXY(DateTime.Now.ToString("HH:mm:ss tt"), client.GetNumberOfServerRequestsToVelibWS(ServerRequest.GetStationsRequest));
+            chart2.Series["StationsOfCity"].Points.AddXY(DateTime.Now.ToString("HH:mm:ss tt"), client.GetNumberOfServerRequestsToVelibWS(ServerRequest.GetStationsOfCityRequest));
+            chart2.Series["CitiesList"].Points.AddXY(DateTime.Now.ToString("HH:mm:ss tt"), client.GetNumberOfServerRequestsToVelibWS(ServerRequest.GetCitiesRequest));
+            // Fill the third chart with average execution times
+            chart3.Series["GetCities"].Points.AddXY(DateTime.Now.ToString("HH:mm:ss tt"), client.GetAverageExecutionTime(ClientRequest.GetCities));
+            chart3.Series["GetStations"].Points.AddXY(DateTime.Now.ToString("HH:mm:ss tt"), client.GetAverageExecutionTime(ClientRequest.GetStationsForCity));
+            chart3.Series["GetAvailableBikes"].Points.AddXY(DateTime.Now.ToString("HH:mm:ss tt"), client.GetAverageExecutionTime(ClientRequest.GetAvailableBikes));
+            // Fill the fourth chart with the number of client connected
+            chart4.Series["Connected clients"].Points.AddXY(DateTime.Now.ToString("HH:mm:ss tt"), client.GetConnectedClients());
         }
     }
 }

@@ -81,6 +81,11 @@ namespace SOAPLibraryVelib
             return reader.ReadToEnd();
         }
 
+        public long GetAverageExecutionTimeOf(ClientRequest clientRequest)
+        {
+            return Monitor.GetAverageResponseDelay(clientRequest);
+        }
+
         public int GetConnectedClient()
         {
             return Monitor.ConnectedClients;

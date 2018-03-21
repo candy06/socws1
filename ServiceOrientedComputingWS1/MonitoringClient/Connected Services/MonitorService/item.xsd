@@ -41,4 +41,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAverageExecutionTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SOAPLibraryVelib" minOccurs="0" name="request" type="q3:ClientRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAverageExecutionTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAverageExecutionTimeResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

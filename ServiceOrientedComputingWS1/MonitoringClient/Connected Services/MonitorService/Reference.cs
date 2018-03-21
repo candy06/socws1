@@ -64,6 +64,12 @@ namespace MonitoringClient.MonitorService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWS", ReplyAction="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWSResponse")]
         System.Threading.Tasks.Task<int> GetNumberOfServerRequestsToVelibWSAsync(MonitoringClient.MonitorService.ServerRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonitorService/GetAverageExecutionTime", ReplyAction="http://tempuri.org/IMonitorService/GetAverageExecutionTimeResponse")]
+        long GetAverageExecutionTime(MonitoringClient.MonitorService.ClientRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonitorService/GetAverageExecutionTime", ReplyAction="http://tempuri.org/IMonitorService/GetAverageExecutionTimeResponse")]
+        System.Threading.Tasks.Task<long> GetAverageExecutionTimeAsync(MonitoringClient.MonitorService.ClientRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -115,6 +121,14 @@ namespace MonitoringClient.MonitorService {
         
         public System.Threading.Tasks.Task<int> GetNumberOfServerRequestsToVelibWSAsync(MonitoringClient.MonitorService.ServerRequest request) {
             return base.Channel.GetNumberOfServerRequestsToVelibWSAsync(request);
+        }
+        
+        public long GetAverageExecutionTime(MonitoringClient.MonitorService.ClientRequest request) {
+            return base.Channel.GetAverageExecutionTime(request);
+        }
+        
+        public System.Threading.Tasks.Task<long> GetAverageExecutionTimeAsync(MonitoringClient.MonitorService.ClientRequest request) {
+            return base.Channel.GetAverageExecutionTimeAsync(request);
         }
     }
 }

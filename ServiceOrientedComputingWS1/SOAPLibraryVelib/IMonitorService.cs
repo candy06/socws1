@@ -13,6 +13,9 @@ namespace SOAPLibraryVelib
 
         [OperationContract]
         int GetNumberOfServerRequestsToVelibWS(ServerRequest request);
+
+        [OperationContract]
+        long GetAverageExecutionTime(ClientRequest request);
     }
 
 

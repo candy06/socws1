@@ -25,6 +25,12 @@
   <wsdl:message name="IMonitorService_GetNumberOfServerRequestsToVelibWS_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetNumberOfServerRequestsToVelibWSResponse" />
   </wsdl:message>
+  <wsdl:message name="IMonitorService_GetAverageExecutionTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAverageExecutionTime" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorService_GetAverageExecutionTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAverageExecutionTimeResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMonitorService">
     <wsdl:operation name="GetConnectedClients">
       <wsdl:input wsaw:Action="http://tempuri.org/IMonitorService/GetConnectedClients" message="tns:IMonitorService_GetConnectedClients_InputMessage" />
@@ -37,6 +43,10 @@
     <wsdl:operation name="GetNumberOfServerRequestsToVelibWS">
       <wsdl:input wsaw:Action="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWS" message="tns:IMonitorService_GetNumberOfServerRequestsToVelibWS_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWSResponse" message="tns:IMonitorService_GetNumberOfServerRequestsToVelibWS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAverageExecutionTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorService/GetAverageExecutionTime" message="tns:IMonitorService_GetAverageExecutionTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorService/GetAverageExecutionTimeResponse" message="tns:IMonitorService_GetAverageExecutionTime_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMonitorService" type="tns:IMonitorService">
@@ -61,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetNumberOfServerRequestsToVelibWS">
       <soap:operation soapAction="http://tempuri.org/IMonitorService/GetNumberOfServerRequestsToVelibWS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAverageExecutionTime">
+      <soap:operation soapAction="http://tempuri.org/IMonitorService/GetAverageExecutionTime" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
