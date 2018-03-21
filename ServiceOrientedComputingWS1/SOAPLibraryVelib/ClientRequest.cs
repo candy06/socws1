@@ -5,6 +5,7 @@ namespace SOAPLibraryVelib
     {
         GetCities,
         GetAvailableBikes,
-        GetStationsForCity
+        GetStationsForCity,
+        GetInformations
     }
 }

@@ -24,6 +24,9 @@ namespace MonitoringClient.MonitorService {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GetStationsForCity = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetInformations = 3,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]

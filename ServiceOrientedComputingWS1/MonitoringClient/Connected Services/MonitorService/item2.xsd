@@ -5,6 +5,7 @@
       <xs:enumeration value="GetCities" />
       <xs:enumeration value="GetAvailableBikes" />
       <xs:enumeration value="GetStationsForCity" />
+      <xs:enumeration value="GetInformations" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="ClientRequest" nillable="true" type="tns:ClientRequest" />

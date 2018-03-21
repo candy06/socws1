@@ -20,7 +20,7 @@ namespace SOAPLibraryVelib
         List<Station> GetAllStations();
 
         [OperationContract]
-        Station GetInformations(int stationNumber, string city);
+        string GetInformations(int stationNumber, string city);
     }
 
     [DataContract]
@@ -45,5 +45,30 @@ namespace SOAPLibraryVelib
         public int Number { get; set; }
         [DataMember]
         public int Available_bikes { get; set; }
+        [DataMember]
+        public string Address { get; set; }
+        [DataMember]
+        public Position Position { get; set; }
+        [DataMember]
+        public bool Banking { get; set; }
+        [DataMember]
+        public bool Bonus { get; set; }
+        [DataMember]
+        public string Status { get; set; }
+        [DataMember]
+        public string Contract_name { get; set; }
+        [DataMember]
+        public int Bike_stands { get; set; }
+        [DataMember]
+        public int Available_bike_stands { get; set; }
+    }
+
+    [DataContract]
+    public class Position
+    {
+        [DataMember]
+        public double Lat { get; set; }
+        [DataMember]
+        public double Lng { get; set; }
     }
 }

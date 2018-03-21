@@ -10,6 +10,7 @@ namespace SOAPLibraryVelib
         private const string citiesKey = "citiesKey";
         private const string stationsKey = "stationsKey";
         private const string availableBikeKey = "availableBikesKey";
+        private const string informationKey = "informationKey";
 
         private ObjectCache cache = MemoryCache.Default;
 
@@ -75,9 +76,40 @@ namespace SOAPLibraryVelib
             return cities;
         }
 
-        public Station GetInformations(int stationNumber, string city)
+        public string GetInformations(int stationNumber, string city)
         {
-            return rm.GetInformations(stationNumber, city);
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            Monitor.AddClient();
+            Monitor.AddClientRequest(ClientRequest.GetInformations);
+
+            string information;
+            string key = informationKey + city + "no" + stationNumber;
+
+            if (cache.Contains(key))
+                information = (string)cache.Get(key);
+            else
+            {
+                Station s = rm.GetInformations(stationNumber, city);
+                information = $"Name: {s.Name}\n" +
+                    $"City:{s.Contract_name}\n" +
+                    $"Number: {s.Number}\n" +
+                    $"Address: {s.Address}\n" +
+                    $"Position: ({s.Position.Lat}, {s.Position.Lng})\n" +
+                    $"Banking: {s.Banking}\n" +
+                    $"Status: {s.Status}\n" +
+                    $"Bike stands: {s.Bike_stands}\n" +
+                    $"Available bike stands: {s.Available_bike_stands}\n" +
+                    $"Available bikes: {s.Available_bikes}\n";
+                CacheItemPolicy cacheItemPolicy = new CacheItemPolicy();
+                cacheItemPolicy.AbsoluteExpiration = DateTime.Now.AddMinutes(5);
+                cache.Add(key, information, cacheItemPolicy);
+            }
+
+            Monitor.RemoveClient();
+            stopwatch.Stop();
+            Monitor.AddExecutionTime(ClientRequest.GetInformations, stopwatch.ElapsedMilliseconds);
+            return information;
+            
         }
 
         public List<Station> GetStationsOf(string cityName)

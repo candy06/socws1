@@ -1,5 +1,6 @@
 ﻿using Client.MyVelibService;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 
@@ -10,6 +11,7 @@ namespace Client
     {
 
         private ServiceClient client = new ServiceClient();
+        private List<Station> selectedStations = new List<Station>();
 
         public Form1()
         {
@@ -43,6 +45,7 @@ namespace Client
         private void button2_Click(object sender, EventArgs e)
         {
             stationsList.Items.Clear();
+            selectedStations.Clear();
             Stopwatch stopwatch = Stopwatch.StartNew();
             Station[] stations = client.GetStationsOf((string)citiesList.SelectedItem);
             stopwatch.Stop();
@@ -50,6 +53,7 @@ namespace Client
             for (int i = 0; i < s; i++)
             {
                 stationsList.Items.Add(stations[i].Name);
+                selectedStations.Add(stations[i]);
             }
 
             selectNewStationButton.Enabled = false;
@@ -115,6 +119,29 @@ namespace Client
             button3.Enabled = false;
 
             label1.Visible = false;
+        }
+
+        private Station findSelectedStation(string stationName)
+        {
+            foreach (Station s in selectedStations)
+            {
+                if (s.Name.Equals(stationName))
+                    return s;
+            }
+            return null;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string station = (string)stationsList.SelectedItem;
+            string city = (string)citiesList.SelectedItem;
+            Station selectedStation = findSelectedStation(station);
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            string informations = client.GetInformations(selectedStation.Number, city);
+            stopwatch.Stop();
+            label8.Text = "Execution time of GetInformations: " + stopwatch.ElapsedMilliseconds + "ms";
+            label8.Visible = true;
+            label7.Text = informations;
         }
     }
 }

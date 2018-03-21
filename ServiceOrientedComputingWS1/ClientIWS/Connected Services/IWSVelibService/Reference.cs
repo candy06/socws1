@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Client.MyVelibService {
+namespace ClientIWS.IWSVelibService {
     using System.Runtime.Serialization;
     using System;
     
@@ -143,7 +143,7 @@ namespace Client.MyVelibService {
         private int NumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.MyVelibService.Position PositionField;
+        private ClientIWS.IWSVelibService.Position PositionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StatusField;
@@ -276,7 +276,7 @@ namespace Client.MyVelibService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.MyVelibService.Position Position {
+        public ClientIWS.IWSVelibService.Position Position {
             get {
                 return this.PositionField;
             }
@@ -373,7 +373,7 @@ namespace Client.MyVelibService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MyVelibService.IService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="IWSVelibService.IService")]
     public interface IService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAvailableBikesForStation", ReplyAction="http://tempuri.org/IService/GetAvailableBikesForStationResponse")]
@@ -383,22 +383,22 @@ namespace Client.MyVelibService {
         System.Threading.Tasks.Task<int> GetAvailableBikesForStationAsync(string stationName, string cityName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetCities", ReplyAction="http://tempuri.org/IService/GetCitiesResponse")]
-        Client.MyVelibService.City[] GetCities();
+        ClientIWS.IWSVelibService.City[] GetCities();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetCities", ReplyAction="http://tempuri.org/IService/GetCitiesResponse")]
-        System.Threading.Tasks.Task<Client.MyVelibService.City[]> GetCitiesAsync();
+        System.Threading.Tasks.Task<ClientIWS.IWSVelibService.City[]> GetCitiesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStationsOf", ReplyAction="http://tempuri.org/IService/GetStationsOfResponse")]
-        Client.MyVelibService.Station[] GetStationsOf(string cityName);
+        ClientIWS.IWSVelibService.Station[] GetStationsOf(string cityName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStationsOf", ReplyAction="http://tempuri.org/IService/GetStationsOfResponse")]
-        System.Threading.Tasks.Task<Client.MyVelibService.Station[]> GetStationsOfAsync(string cityName);
+        System.Threading.Tasks.Task<ClientIWS.IWSVelibService.Station[]> GetStationsOfAsync(string cityName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStations", ReplyAction="http://tempuri.org/IService/GetAllStationsResponse")]
-        Client.MyVelibService.Station[] GetAllStations();
+        ClientIWS.IWSVelibService.Station[] GetAllStations();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStations", ReplyAction="http://tempuri.org/IService/GetAllStationsResponse")]
-        System.Threading.Tasks.Task<Client.MyVelibService.Station[]> GetAllStationsAsync();
+        System.Threading.Tasks.Task<ClientIWS.IWSVelibService.Station[]> GetAllStationsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetInformations", ReplyAction="http://tempuri.org/IService/GetInformationsResponse")]
         string GetInformations(int stationNumber, string city);
@@ -408,12 +408,12 @@ namespace Client.MyVelibService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceChannel : Client.MyVelibService.IService, System.ServiceModel.IClientChannel {
+    public interface IServiceChannel : ClientIWS.IWSVelibService.IService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceClient : System.ServiceModel.ClientBase<Client.MyVelibService.IService>, Client.MyVelibService.IService {
+    public partial class ServiceClient : System.ServiceModel.ClientBase<ClientIWS.IWSVelibService.IService>, ClientIWS.IWSVelibService.IService {
         
         public ServiceClient() {
         }
@@ -442,27 +442,27 @@ namespace Client.MyVelibService {
             return base.Channel.GetAvailableBikesForStationAsync(stationName, cityName);
         }
         
-        public Client.MyVelibService.City[] GetCities() {
+        public ClientIWS.IWSVelibService.City[] GetCities() {
             return base.Channel.GetCities();
         }
         
-        public System.Threading.Tasks.Task<Client.MyVelibService.City[]> GetCitiesAsync() {
+        public System.Threading.Tasks.Task<ClientIWS.IWSVelibService.City[]> GetCitiesAsync() {
             return base.Channel.GetCitiesAsync();
         }
         
-        public Client.MyVelibService.Station[] GetStationsOf(string cityName) {
+        public ClientIWS.IWSVelibService.Station[] GetStationsOf(string cityName) {
             return base.Channel.GetStationsOf(cityName);
         }
         
-        public System.Threading.Tasks.Task<Client.MyVelibService.Station[]> GetStationsOfAsync(string cityName) {
+        public System.Threading.Tasks.Task<ClientIWS.IWSVelibService.Station[]> GetStationsOfAsync(string cityName) {
             return base.Channel.GetStationsOfAsync(cityName);
         }
         
-        public Client.MyVelibService.Station[] GetAllStations() {
+        public ClientIWS.IWSVelibService.Station[] GetAllStations() {
             return base.Channel.GetAllStations();
         }
         
-        public System.Threading.Tasks.Task<Client.MyVelibService.Station[]> GetAllStationsAsync() {
+        public System.Threading.Tasks.Task<ClientIWS.IWSVelibService.Station[]> GetAllStationsAsync() {
             return base.Channel.GetAllStationsAsync();
         }
         
