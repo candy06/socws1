@@ -12,7 +12,7 @@ namespace MonitoringClient
         public Form1()
         {
             InitializeComponent();
-            _autoRefreshTimer.Interval = 30000; // in ms (30sec)
+            _autoRefreshTimer.Interval = 10000; // in ms (10sec)
             _autoRefreshTimer.Enabled = false;
             _autoRefreshTimer.Tick += _autoRefreshTimer_Tick;
         }

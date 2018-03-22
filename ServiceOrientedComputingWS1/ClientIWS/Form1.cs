@@ -108,6 +108,7 @@ namespace ClientIWS
             if (selectedCity.Equals("None"))
             {
                 DisplayErrorMessage("Error: please, select a city!");
+                labelExecutionTime.Visible = false;
                 return;
             }
 
@@ -152,6 +153,7 @@ namespace ClientIWS
             if (selectedCity.Equals("None") || selectedStation.Equals("None"))
             {
                 DisplayErrorMessage("Error: please, select a city and a station!");
+                labelExecutionTime.Visible = false;
                 return;
             }
 
@@ -195,6 +197,7 @@ namespace ClientIWS
             if (selectedStation.Equals("None") || selectedCity.Equals("None"))
             {
                 DisplayErrorMessage("Error: please, select a city and a station!");
+                labelExecutionTime.Visible = false;
                 return;
             }
 

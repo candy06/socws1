@@ -5,11 +5,6 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPLibraryVelib", "SOAPLibraryVelib\SOAPLibraryVelib.csproj", "{E0C2709A-88BA-48E2-9757-F65715F0E80B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{AB387020-FD26-4614-9362-DE86C5C4933B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{E0C2709A-88BA-48E2-9757-F65715F0E80B} = {E0C2709A-88BA-48E2-9757-F65715F0E80B}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConsole", "ClientConsole\ClientConsole.csproj", "{12BA5F79-7887-4AEB-B19A-F501789F3470}"
 	ProjectSection(ProjectDependencies) = postProject
 		{E0C2709A-88BA-48E2-9757-F65715F0E80B} = {E0C2709A-88BA-48E2-9757-F65715F0E80B}
@@ -35,10 +30,6 @@ Global
 		{E0C2709A-88BA-48E2-9757-F65715F0E80B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0C2709A-88BA-48E2-9757-F65715F0E80B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0C2709A-88BA-48E2-9757-F65715F0E80B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB387020-FD26-4614-9362-DE86C5C4933B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB387020-FD26-4614-9362-DE86C5C4933B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB387020-FD26-4614-9362-DE86C5C4933B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB387020-FD26-4614-9362-DE86C5C4933B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{12BA5F79-7887-4AEB-B19A-F501789F3470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{12BA5F79-7887-4AEB-B19A-F501789F3470}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12BA5F79-7887-4AEB-B19A-F501789F3470}.Release|Any CPU.ActiveCfg = Release|Any CPU
