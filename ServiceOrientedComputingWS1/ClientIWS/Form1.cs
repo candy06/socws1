@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using ClientIWS.IWSVelibService;
+using GMap.NET;
+using GMap.NET.MapProviders;
 
 namespace ClientIWS
 {
@@ -58,7 +60,6 @@ namespace ClientIWS
             // Set invisible other elements of main frame
             listBoxStations.Visible = false;
             labelError.Visible = false;
-            buttonSelectStation.Visible = false;
             labelAvailableBikes.Visible = false;
             labelMoreInformation.Visible = false;
 
@@ -73,6 +74,8 @@ namespace ClientIWS
 
             if (!selectedCity.Equals("None"))
                 buttonSelectCity.Visible = true;
+
+            SelectNewCity();
 
         }
 
@@ -110,8 +113,7 @@ namespace ClientIWS
             // Set visible what concerns the city things
             listBoxStations.Visible = true;
 
-            if (!selectedStation.Equals("None"))
-                buttonSelectStation.Visible = true;
+            SelectNewStation();
         }
 
         private void ButtonBikes_Click(object sender, EventArgs e)
@@ -127,7 +129,6 @@ namespace ClientIWS
             listBoxCities.Visible = false;
             listBoxStations.Visible = false;
             labelTitle.Visible = false;
-            buttonSelectStation.Visible = false;
             buttonSelectCity.Visible = false;
             labelError.Visible = false;
             labelMoreInformation.Visible = false;
@@ -145,6 +146,14 @@ namespace ClientIWS
             int availableBikes = client.GetAvailableBikesForStation(selectedStation, selectedCity);
             labelAvailableBikes.Text = "" + availableBikes;
             labelAvailableBikes.Visible = true;
+
+            // Display the map
+            Station station = GetSelectedStation();
+            map.Visible = true;
+            map.MapProvider = GMapProviders.GoogleMap;
+            double lat = station.Position.Lat;
+            double lng = station.Position.Lng;
+            map.Position = new PointLatLng(lat, lng);
         }
 
         private void ButtonMoreInformation_Click(object sender, EventArgs e)
@@ -160,7 +169,6 @@ namespace ClientIWS
             listBoxCities.Visible = false;
             listBoxStations.Visible = false;
             labelTitle.Visible = false;
-            buttonSelectStation.Visible = false;
             buttonSelectCity.Visible = false;
             labelAvailableBikes.Visible = false;
             labelError.Visible = false;
@@ -200,10 +208,16 @@ namespace ClientIWS
 
         private void ButtonSelectCity_Click(object sender, EventArgs e)
         {
+            SelectNewCity();
+        }
+
+        private void SelectNewCity()
+        {
             selectedCity = "None";
             listBoxCities.Enabled = true;
             buttonSelectCity.Visible = false;
             labelSelectedCity.Text = selectedCity;
+            map.Visible = false;
         }
 
         // About station selection
@@ -212,16 +226,20 @@ namespace ClientIWS
             selectedStation = (string)listBoxStations.SelectedItem;
             labelSelectedStation.Text = selectedStation;
             listBoxStations.Enabled = false;
-            buttonSelectStation.Visible = true;
             GetAvailableBikes();
         }
 
         private void ButtonSelectStation_Click(object sender, EventArgs e)
         {
+            SelectNewStation();
+        }
+
+        private void SelectNewStation()
+        {
             selectedStation = "None";
             listBoxStations.Enabled = true;
-            buttonSelectStation.Visible = false;
             labelSelectedStation.Text = selectedStation;
+            map.Visible = false;
         }
     }
 }

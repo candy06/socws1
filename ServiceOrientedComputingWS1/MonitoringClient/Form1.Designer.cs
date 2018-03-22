@@ -61,20 +61,24 @@
             this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.uxAutoRefreshField = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(458, 15);
+            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(-2, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(383, 44);
+            this.label1.Size = new System.Drawing.Size(543, 79);
             this.label1.TabIndex = 0;
             this.label1.Text = "⠂Monitoring panel ⠂";
             // 
@@ -102,7 +106,7 @@
             this.chart1.Series.Add(series2);
             this.chart1.Series.Add(series3);
             this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(608, 285);
+            this.chart1.Size = new System.Drawing.Size(662, 327);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
             title1.Name = "Title1";
@@ -111,9 +115,14 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1092, 12);
+            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(1112, 0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(165, 47);
+            this.button2.Size = new System.Drawing.Size(261, 117);
             this.button2.TabIndex = 8;
             this.button2.Text = "Load charts";
             this.button2.UseVisualStyleBackColor = true;
@@ -125,7 +134,7 @@
             this.chart2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(3, 294);
+            this.chart2.Location = new System.Drawing.Point(3, 336);
             this.chart2.Name = "chart2";
             series5.ChartArea = "ChartArea1";
             series5.Legend = "Legend1";
@@ -143,7 +152,7 @@
             this.chart2.Series.Add(series6);
             this.chart2.Series.Add(series7);
             this.chart2.Series.Add(series8);
-            this.chart2.Size = new System.Drawing.Size(608, 283);
+            this.chart2.Size = new System.Drawing.Size(662, 328);
             this.chart2.TabIndex = 9;
             this.chart2.Text = "chart2";
             title2.Name = "Title1";
@@ -156,7 +165,7 @@
             this.chart3.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.chart3.Legends.Add(legend3);
-            this.chart3.Location = new System.Drawing.Point(617, 3);
+            this.chart3.Location = new System.Drawing.Point(671, 3);
             this.chart3.Name = "chart3";
             series9.ChartArea = "ChartArea1";
             series9.Legend = "Legend1";
@@ -174,7 +183,7 @@
             this.chart3.Series.Add(series10);
             this.chart3.Series.Add(series11);
             this.chart3.Series.Add(series12);
-            this.chart3.Size = new System.Drawing.Size(623, 285);
+            this.chart3.Size = new System.Drawing.Size(666, 327);
             this.chart3.TabIndex = 10;
             this.chart3.Text = "chart3";
             title3.Name = "Title1";
@@ -187,14 +196,14 @@
             this.chart4.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
             this.chart4.Legends.Add(legend4);
-            this.chart4.Location = new System.Drawing.Point(617, 294);
+            this.chart4.Location = new System.Drawing.Point(671, 336);
             this.chart4.Name = "chart4";
             this.chart4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series13.ChartArea = "ChartArea1";
             series13.Legend = "Legend1";
             series13.Name = "Connected clients";
             this.chart4.Series.Add(series13);
-            this.chart4.Size = new System.Drawing.Size(623, 283);
+            this.chart4.Size = new System.Drawing.Size(662, 339);
             this.chart4.TabIndex = 11;
             this.chart4.Text = "chart4";
             title4.Name = "Title1";
@@ -207,31 +216,53 @@
             this.flowLayoutPanel1.Controls.Add(this.chart3);
             this.flowLayoutPanel1.Controls.Add(this.chart2);
             this.flowLayoutPanel1.Controls.Add(this.chart4);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 65);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 123);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1245, 589);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1349, 664);
             this.flowLayoutPanel1.TabIndex = 12;
             // 
             // uxAutoRefreshField
             // 
             this.uxAutoRefreshField.AutoSize = true;
-            this.uxAutoRefreshField.Location = new System.Drawing.Point(963, 37);
+            this.uxAutoRefreshField.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxAutoRefreshField.Location = new System.Drawing.Point(932, 42);
             this.uxAutoRefreshField.Name = "uxAutoRefreshField";
-            this.uxAutoRefreshField.Size = new System.Drawing.Size(83, 17);
+            this.uxAutoRefreshField.Size = new System.Drawing.Size(174, 34);
             this.uxAutoRefreshField.TabIndex = 13;
             this.uxAutoRefreshField.Text = "Auto refresh";
             this.uxAutoRefreshField.UseVisualStyleBackColor = true;
             this.uxAutoRefreshField.CheckedChanged += new System.EventHandler(this.uxAutoRefreshField_CheckedChanged);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.uxAutoRefreshField);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1373, 117);
+            this.panel1.TabIndex = 14;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(544, 117);
+            this.panel2.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1269, 666);
-            this.Controls.Add(this.uxAutoRefreshField);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(60)))));
+            this.ClientSize = new System.Drawing.Size(1373, 799);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.Color.Teal;
             this.Name = "Form1";
             this.Text = "Monitoring";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -239,8 +270,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -254,6 +288,8 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.CheckBox uxAutoRefreshField;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

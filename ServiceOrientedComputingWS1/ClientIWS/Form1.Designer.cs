@@ -35,12 +35,11 @@
             this.buttonCities = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonSelectStation = new System.Windows.Forms.Button();
             this.buttonSelectCity = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.map = new GMap.NET.WindowsForms.GMapControl();
             this.labelSelectedStation = new System.Windows.Forms.Label();
             this.labelSelectedCity = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,13 +53,13 @@
             this.labelMoreInformation = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonSelectCity);
             this.panel1.Controls.Add(this.buttonMoreInformation);
             this.panel1.Controls.Add(this.buttonBikes);
             this.panel1.Controls.Add(this.buttonStations);
@@ -69,7 +68,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(199, 660);
+            this.panel1.Size = new System.Drawing.Size(199, 684);
             this.panel1.TabIndex = 0;
             // 
             // buttonMoreInformation
@@ -148,40 +147,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Client";
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.buttonSelectStation);
-            this.panel2.Controls.Add(this.buttonSelectCity);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(199, 526);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1057, 134);
-            this.panel2.TabIndex = 1;
-            // 
-            // buttonSelectStation
-            // 
-            this.buttonSelectStation.FlatAppearance.BorderSize = 0;
-            this.buttonSelectStation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelectStation.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSelectStation.ForeColor = System.Drawing.Color.White;
-            this.buttonSelectStation.Location = new System.Drawing.Point(305, 3);
-            this.buttonSelectStation.Name = "buttonSelectStation";
-            this.buttonSelectStation.Size = new System.Drawing.Size(238, 134);
-            this.buttonSelectStation.TabIndex = 1;
-            this.buttonSelectStation.Text = "Select another station";
-            this.buttonSelectStation.UseVisualStyleBackColor = true;
-            this.buttonSelectStation.Visible = false;
-            this.buttonSelectStation.Click += new System.EventHandler(this.ButtonSelectStation_Click);
-            // 
             // buttonSelectCity
             // 
             this.buttonSelectCity.FlatAppearance.BorderSize = 0;
             this.buttonSelectCity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSelectCity.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSelectCity.ForeColor = System.Drawing.Color.White;
-            this.buttonSelectCity.Location = new System.Drawing.Point(305, 3);
+            this.buttonSelectCity.Location = new System.Drawing.Point(0, 526);
             this.buttonSelectCity.Name = "buttonSelectCity";
-            this.buttonSelectCity.Size = new System.Drawing.Size(238, 134);
+            this.buttonSelectCity.Size = new System.Drawing.Size(199, 106);
             this.buttonSelectCity.TabIndex = 0;
             this.buttonSelectCity.Text = "Select another city";
             this.buttonSelectCity.UseVisualStyleBackColor = true;
@@ -210,16 +184,45 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.map);
             this.panel4.Controls.Add(this.labelSelectedStation);
             this.panel4.Controls.Add(this.labelSelectedCity);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(968, 0);
+            this.panel4.Location = new System.Drawing.Point(990, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(288, 526);
+            this.panel4.Size = new System.Drawing.Size(466, 684);
             this.panel4.TabIndex = 4;
+            // 
+            // map
+            // 
+            this.map.Bearing = 0F;
+            this.map.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.map.CanDragMap = true;
+            this.map.EmptyTileColor = System.Drawing.Color.Navy;
+            this.map.GrayScaleMode = false;
+            this.map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.map.LevelsKeepInMemmory = 5;
+            this.map.Location = new System.Drawing.Point(17, 375);
+            this.map.MarkersEnabled = true;
+            this.map.MaxZoom = 100;
+            this.map.MinZoom = 2;
+            this.map.MouseWheelZoomEnabled = true;
+            this.map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.map.Name = "map";
+            this.map.NegativeMode = false;
+            this.map.PolygonsEnabled = false;
+            this.map.RetryLoadTile = 0;
+            this.map.RoutesEnabled = true;
+            this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.map.ShowTileGridLines = false;
+            this.map.Size = new System.Drawing.Size(437, 278);
+            this.map.TabIndex = 8;
+            this.map.Visible = false;
+            this.map.Zoom = 15D;
             // 
             // labelSelectedStation
             // 
@@ -270,16 +273,16 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(288, 100);
+            this.panel5.Size = new System.Drawing.Size(466, 100);
             this.panel5.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(58, 10);
+            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 72F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(107, -19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 79);
+            this.label2.Size = new System.Drawing.Size(271, 117);
             this.label2.TabIndex = 1;
             this.label2.Text = "Recap\'";
             // 
@@ -340,7 +343,7 @@
             this.labelMoreInformation.AutoSize = true;
             this.labelMoreInformation.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMoreInformation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.labelMoreInformation.Location = new System.Drawing.Point(410, 131);
+            this.labelMoreInformation.Location = new System.Drawing.Point(305, 118);
             this.labelMoreInformation.Name = "labelMoreInformation";
             this.labelMoreInformation.Size = new System.Drawing.Size(74, 24);
             this.labelMoreInformation.TabIndex = 5;
@@ -351,7 +354,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(60)))));
-            this.ClientSize = new System.Drawing.Size(1256, 660);
+            this.ClientSize = new System.Drawing.Size(1456, 684);
             this.Controls.Add(this.labelMoreInformation);
             this.Controls.Add(this.labelAvailableBikes);
             this.Controls.Add(this.labelError);
@@ -360,17 +363,15 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.panelLeft);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Teal;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "IWS Client";
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -384,7 +385,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonMoreInformation;
         private System.Windows.Forms.Button buttonBikes;
@@ -403,9 +403,9 @@
         private System.Windows.Forms.Button buttonSelectCity;
         private System.Windows.Forms.ListBox listBoxStations;
         private System.Windows.Forms.Label labelError;
-        private System.Windows.Forms.Button buttonSelectStation;
         private System.Windows.Forms.Label labelAvailableBikes;
         private System.Windows.Forms.Label labelMoreInformation;
+        private GMap.NET.WindowsForms.GMapControl map;
     }
 }
 
