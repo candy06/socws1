@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 using ClientIWS.IWSVelibService;
 using GMap.NET;
@@ -18,6 +19,13 @@ namespace ClientIWS
         private string selectedCity = "None";
         private string selectedStation = "None";
         private List<Station> stationsList = new List<Station>();
+
+        // Display or update the execution time
+        private void UpdateAndDisplayExecutionTimeClientSide(long executionTime)
+        {
+            labelExecutionTime.Text = $"Execution time: {executionTime} ms";
+            labelExecutionTime.Visible = true;
+        }
 
         // Find the station object
         private Station GetSelectedStation()
@@ -63,7 +71,12 @@ namespace ClientIWS
             labelAvailableBikes.Visible = false;
             labelMoreInformation.Visible = false;
 
+            // Update execution time client-side
+            Stopwatch stopwatch = Stopwatch.StartNew();
             City[] cities = client.GetCities();
+            stopwatch.Stop();
+            UpdateAndDisplayExecutionTimeClientSide(stopwatch.ElapsedMilliseconds);
+
             for (int i = 0; i < cities.Length; i++)
             {
                 listBoxCities.Items.Add(cities[i].Name);
@@ -103,7 +116,10 @@ namespace ClientIWS
             UpdateTitleLabel("Stations list");
             
             listBoxStations.Items.Clear();
+            Stopwatch stopwatch = Stopwatch.StartNew();
             Station[] stations = client.GetStationsOf(selectedCity);
+            stopwatch.Stop();
+            UpdateAndDisplayExecutionTimeClientSide(stopwatch.ElapsedMilliseconds);
             for (int i = 0; i < stations.Length; i++)
             {
                 listBoxStations.Items.Add(stations[i].Name);
@@ -143,7 +159,10 @@ namespace ClientIWS
 
             UpdateTitleLabel("Available bikes");
 
+            Stopwatch stopwatch = Stopwatch.StartNew();
             int availableBikes = client.GetAvailableBikesForStation(selectedStation, selectedCity);
+            stopwatch.Stop();
+            UpdateAndDisplayExecutionTimeClientSide(stopwatch.ElapsedMilliseconds);
             labelAvailableBikes.Text = "" + availableBikes;
             labelAvailableBikes.Visible = true;
 
@@ -184,7 +203,10 @@ namespace ClientIWS
             UpdateTitleLabel("More information");
 
             Station station = GetSelectedStation();
+            Stopwatch stopwatch = Stopwatch.StartNew();
             string informations = client.GetInformations(station.Number, selectedCity);
+            stopwatch.Stop();
+            UpdateAndDisplayExecutionTimeClientSide(stopwatch.ElapsedMilliseconds);
             labelMoreInformation.Text = informations;
             labelMoreInformation.Visible = true;
         }

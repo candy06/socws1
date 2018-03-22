@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonSelectCity = new System.Windows.Forms.Button();
             this.buttonMoreInformation = new System.Windows.Forms.Button();
             this.buttonBikes = new System.Windows.Forms.Button();
             this.buttonStations = new System.Windows.Forms.Button();
             this.buttonCities = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonSelectCity = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -51,6 +51,7 @@
             this.labelError = new System.Windows.Forms.Label();
             this.labelAvailableBikes = new System.Windows.Forms.Label();
             this.labelMoreInformation = new System.Windows.Forms.Label();
+            this.labelExecutionTime = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -70,6 +71,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(199, 684);
             this.panel1.TabIndex = 0;
+            // 
+            // buttonSelectCity
+            // 
+            this.buttonSelectCity.FlatAppearance.BorderSize = 0;
+            this.buttonSelectCity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSelectCity.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSelectCity.ForeColor = System.Drawing.Color.White;
+            this.buttonSelectCity.Location = new System.Drawing.Point(0, 526);
+            this.buttonSelectCity.Name = "buttonSelectCity";
+            this.buttonSelectCity.Size = new System.Drawing.Size(199, 106);
+            this.buttonSelectCity.TabIndex = 0;
+            this.buttonSelectCity.Text = "Select another city";
+            this.buttonSelectCity.UseVisualStyleBackColor = true;
+            this.buttonSelectCity.Visible = false;
+            this.buttonSelectCity.Click += new System.EventHandler(this.ButtonSelectCity_Click);
             // 
             // buttonMoreInformation
             // 
@@ -146,21 +162,6 @@
             this.label1.Size = new System.Drawing.Size(168, 79);
             this.label1.TabIndex = 0;
             this.label1.Text = "Client";
-            // 
-            // buttonSelectCity
-            // 
-            this.buttonSelectCity.FlatAppearance.BorderSize = 0;
-            this.buttonSelectCity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelectCity.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSelectCity.ForeColor = System.Drawing.Color.White;
-            this.buttonSelectCity.Location = new System.Drawing.Point(0, 526);
-            this.buttonSelectCity.Name = "buttonSelectCity";
-            this.buttonSelectCity.Size = new System.Drawing.Size(199, 106);
-            this.buttonSelectCity.TabIndex = 0;
-            this.buttonSelectCity.Text = "Select another city";
-            this.buttonSelectCity.UseVisualStyleBackColor = true;
-            this.buttonSelectCity.Visible = false;
-            this.buttonSelectCity.Click += new System.EventHandler(this.ButtonSelectCity_Click);
             // 
             // panelLeft
             // 
@@ -350,11 +351,24 @@
             this.labelMoreInformation.Text = "label5";
             this.labelMoreInformation.Visible = false;
             // 
+            // labelExecutionTime
+            // 
+            this.labelExecutionTime.AutoSize = true;
+            this.labelExecutionTime.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelExecutionTime.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.labelExecutionTime.Location = new System.Drawing.Point(790, 646);
+            this.labelExecutionTime.Name = "labelExecutionTime";
+            this.labelExecutionTime.Size = new System.Drawing.Size(58, 19);
+            this.labelExecutionTime.TabIndex = 8;
+            this.labelExecutionTime.Text = "label5";
+            this.labelExecutionTime.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(1456, 684);
+            this.Controls.Add(this.labelExecutionTime);
             this.Controls.Add(this.labelMoreInformation);
             this.Controls.Add(this.labelAvailableBikes);
             this.Controls.Add(this.labelError);
@@ -406,6 +420,7 @@
         private System.Windows.Forms.Label labelAvailableBikes;
         private System.Windows.Forms.Label labelMoreInformation;
         private GMap.NET.WindowsForms.GMapControl map;
+        private System.Windows.Forms.Label labelExecutionTime;
     }
 }
 
