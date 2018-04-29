@@ -39,6 +39,7 @@
             this.panelLeft = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.SubscribeButton = new System.Windows.Forms.Button();
             this.map = new GMap.NET.WindowsForms.GMapControl();
             this.labelSelectedStation = new System.Windows.Forms.Label();
             this.labelSelectedCity = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@
             this.labelAvailableBikes = new System.Windows.Forms.Label();
             this.labelMoreInformation = new System.Windows.Forms.Label();
             this.labelExecutionTime = new System.Windows.Forms.Label();
-            this.SubscribeButton = new System.Windows.Forms.Button();
+            this.UnsubscribeButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -186,6 +187,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.UnsubscribeButton);
             this.panel4.Controls.Add(this.SubscribeButton);
             this.panel4.Controls.Add(this.map);
             this.panel4.Controls.Add(this.labelSelectedStation);
@@ -198,6 +200,16 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(466, 723);
             this.panel4.TabIndex = 4;
+            // 
+            // SubscribeButton
+            // 
+            this.SubscribeButton.Location = new System.Drawing.Point(25, 668);
+            this.SubscribeButton.Name = "SubscribeButton";
+            this.SubscribeButton.Size = new System.Drawing.Size(218, 43);
+            this.SubscribeButton.TabIndex = 9;
+            this.SubscribeButton.Text = "Subscribe";
+            this.SubscribeButton.UseVisualStyleBackColor = true;
+            this.SubscribeButton.Click += new System.EventHandler(this.SubscribeButton_Click);
             // 
             // map
             // 
@@ -365,16 +377,6 @@
             this.labelExecutionTime.Text = "label5";
             this.labelExecutionTime.Visible = false;
             // 
-            // SubscribeButton
-            // 
-            this.SubscribeButton.Location = new System.Drawing.Point(25, 668);
-            this.SubscribeButton.Name = "SubscribeButton";
-            this.SubscribeButton.Size = new System.Drawing.Size(218, 43);
-            this.SubscribeButton.TabIndex = 9;
-            this.SubscribeButton.Text = "Subscribe";
-            this.SubscribeButton.UseVisualStyleBackColor = true;
-            this.SubscribeButton.Click += new System.EventHandler(this.SubscribeButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -434,6 +436,7 @@
         private GMap.NET.WindowsForms.GMapControl map;
         private System.Windows.Forms.Label labelExecutionTime;
         private System.Windows.Forms.Button SubscribeButton;
+        private System.Windows.Forms.Button UnsubscribeButton;
     }
 }
 

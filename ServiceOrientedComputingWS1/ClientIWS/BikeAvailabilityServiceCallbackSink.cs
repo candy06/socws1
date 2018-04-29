@@ -7,7 +7,7 @@ namespace ClientIWS
     {
         public void BikeAvailabilityUpdate(string city, string station, double nbAvailableBikes)
         {
-            Debug.WriteLine($"{city} {station} {nbAvailableBikes}");
+            Debug.WriteLine($"Available bikes for station {station} is {nbAvailableBikes}.");
         }
 
         
