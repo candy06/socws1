@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientIWS", "ClientIWS\Clie
 		{E0C2709A-88BA-48E2-9757-F65715F0E80B} = {E0C2709A-88BA-48E2-9757-F65715F0E80B}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsLib", "EventsLib\EventsLib.csproj", "{406F68E2-34A5-4C6D-88AE-21670611912C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{1E6AC40C-D669-4D46-A4F3-AA682DA87FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E6AC40C-D669-4D46-A4F3-AA682DA87FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E6AC40C-D669-4D46-A4F3-AA682DA87FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{406F68E2-34A5-4C6D-88AE-21670611912C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{406F68E2-34A5-4C6D-88AE-21670611912C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{406F68E2-34A5-4C6D-88AE-21670611912C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{406F68E2-34A5-4C6D-88AE-21670611912C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

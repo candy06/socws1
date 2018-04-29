@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.ServiceModel;
 using System.Windows.Forms;
+using ClientIWS.BikeAvailabilityEvent;
 using ClientIWS.IWSVelibService;
 using GMap.NET;
 using GMap.NET.MapProviders;
@@ -10,15 +12,21 @@ namespace ClientIWS
 {
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
 
         private ServiceClient client = new ServiceClient();
+        private SubscriberServiceClient subscriberClient;
         private string selectedCity = "None";
         private string selectedStation = "None";
         private List<Station> stationsList = new List<Station>();
+
+
+        public Form1()
+        {
+            InitializeComponent();
+            var objsink = new BikeAvailabilityServiceCallbackSink();
+            var iCntxt = new InstanceContext(objsink);
+            subscriberClient = new SubscriberServiceClient(iCntxt);
+        }
 
         // Display or update the execution time
         private void UpdateAndDisplayExecutionTimeClientSide(long executionTime)
@@ -265,6 +273,11 @@ namespace ClientIWS
             listBoxStations.Enabled = true;
             labelSelectedStation.Text = selectedStation;
             map.Visible = false;
+        }
+
+        private void SubscribeButton_Click(object sender, EventArgs e)
+        {
+            subscriberClient.Subscribe(selectedCity, selectedStation, 10);
         }
     }
 }
