@@ -53,7 +53,6 @@
             this.labelAvailableBikes = new System.Windows.Forms.Label();
             this.labelMoreInformation = new System.Windows.Forms.Label();
             this.labelExecutionTime = new System.Windows.Forms.Label();
-            this.UnsubscribeButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -187,7 +186,6 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.UnsubscribeButton);
             this.panel4.Controls.Add(this.SubscribeButton);
             this.panel4.Controls.Add(this.map);
             this.panel4.Controls.Add(this.labelSelectedStation);
@@ -436,7 +434,6 @@
         private GMap.NET.WindowsForms.GMapControl map;
         private System.Windows.Forms.Label labelExecutionTime;
         private System.Windows.Forms.Button SubscribeButton;
-        private System.Windows.Forms.Button UnsubscribeButton;
     }
 }
 

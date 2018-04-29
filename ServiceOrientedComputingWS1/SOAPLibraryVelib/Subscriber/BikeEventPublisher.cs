@@ -12,6 +12,7 @@ namespace SOAPLibraryVelib.Subscriber
     {
 
         private Dictionary<string, string> hashCityStation = new Dictionary<string, string>();
+        private List<StationInfo> stationInfos = new List<StationInfo>();
 
         private Timer refreshTimer = new Timer();
         private RequestManager rm = new RequestManager();
@@ -25,10 +26,16 @@ namespace SOAPLibraryVelib.Subscriber
 
         private void refreshTimerElapsed(object sender, ElapsedEventArgs e)
         {
+            /*
             foreach (KeyValuePair<string, string> pair in hashCityStation)
             {
                 double updatedNumberOfBikes = rm.GetAvailableBikes(pair.Value, pair.Key);
                 bikeAvailabilityUpdate(pair.Key, pair.Value, updatedNumberOfBikes);
+            }*/
+            foreach (StationInfo si in stationInfos)
+            {
+                double nbAvailableBikes = rm.GetAvailableBikes(si.StationName, si.CityName);
+                bikeAvailabilityUpdate(si.StationName, si.CityName, nbAvailableBikes);
             }
         }
 
@@ -38,7 +45,8 @@ namespace SOAPLibraryVelib.Subscriber
         {
             IBikeEvent subscriber = OperationContext.Current.GetCallbackChannel<IBikeEvent>();
             bikeAvailabilityUpdate += subscriber.BikeAvailabilityUpdate;
-            hashCityStation.Add(city, station);
+            //hashCityStation.Add(city, station);
+            stationInfos.Add(new StationInfo(station, city));
             Debug.WriteLine($"Client subscribes to {city} / {station} every {refresh} seconds.");
         }
     }

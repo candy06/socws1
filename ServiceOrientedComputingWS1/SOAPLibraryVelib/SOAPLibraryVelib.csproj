@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Subscriber\BikeEventPublisher.cs" />
+    <Compile Include="Subscriber\StationInfo.cs" />
     <Compile Include="Tools\ClientRequest.cs" />
     <Compile Include="Monitoring\IMonitorService.cs" />
     <Compile Include="Velib\IService.cs" />
