@@ -23,9 +23,18 @@ namespace ClientIWS
         public Form1()
         {
             InitializeComponent();
-            var objsink = new BikeAvailabilityServiceCallbackSink();
+            var objsink = new BikeAvailabilityServiceCallbackSink(this);
             var iCntxt = new InstanceContext(objsink);
             subscriberClient = new SubscriberServiceClient(iCntxt);
+        }
+
+        public void UpdateAvailableBikesNotification(string city, string station, double nbAvailableBikes)
+        {
+            Invoke(new Action(() =>
+           {
+               labelUpdateAvailableBikes.Text = $"{DateTime.Now.ToShortTimeString()}: {nbAvailableBikes} bike(s) for station {station}/{city}.";
+           }));
+                
         }
 
         // Display or update the execution time

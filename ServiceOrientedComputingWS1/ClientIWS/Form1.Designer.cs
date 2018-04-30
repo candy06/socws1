@@ -53,6 +53,7 @@
             this.labelAvailableBikes = new System.Windows.Forms.Label();
             this.labelMoreInformation = new System.Windows.Forms.Label();
             this.labelExecutionTime = new System.Windows.Forms.Label();
+            this.labelUpdateAvailableBikes = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -375,11 +376,22 @@
             this.labelExecutionTime.Text = "label5";
             this.labelExecutionTime.Visible = false;
             // 
+            // labelUpdateAvailableBikes
+            // 
+            this.labelUpdateAvailableBikes.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.labelUpdateAvailableBikes.AutoSize = true;
+            this.labelUpdateAvailableBikes.Location = new System.Drawing.Point(229, 668);
+            this.labelUpdateAvailableBikes.Name = "labelUpdateAvailableBikes";
+            this.labelUpdateAvailableBikes.Size = new System.Drawing.Size(22, 21);
+            this.labelUpdateAvailableBikes.TabIndex = 9;
+            this.labelUpdateAvailableBikes.Text = "...";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(1456, 723);
+            this.Controls.Add(this.labelUpdateAvailableBikes);
             this.Controls.Add(this.labelExecutionTime);
             this.Controls.Add(this.labelMoreInformation);
             this.Controls.Add(this.labelAvailableBikes);
@@ -434,6 +446,7 @@
         private GMap.NET.WindowsForms.GMapControl map;
         private System.Windows.Forms.Label labelExecutionTime;
         private System.Windows.Forms.Button SubscribeButton;
+        private System.Windows.Forms.Label labelUpdateAvailableBikes;
     }
 }
 
