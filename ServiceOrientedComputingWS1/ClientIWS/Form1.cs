@@ -18,7 +18,8 @@ namespace ClientIWS
         private string selectedCity = "None";
         private string selectedStation = "None";
         private List<Station> stationsList = new List<Station>();
-
+        private List<string> subscribedStations = new List<string>();
+        private StringManager sm = new StringManager();
 
         public Form1()
         {
@@ -26,6 +27,7 @@ namespace ClientIWS
             var objsink = new BikeAvailabilityServiceCallbackSink(this);
             var iCntxt = new InstanceContext(objsink);
             subscriberClient = new SubscriberServiceClient(iCntxt);
+            subscribedStations.Clear();
         }
 
         public void UpdateAvailableBikesNotification(string city, string station, double nbAvailableBikes)
@@ -40,8 +42,14 @@ namespace ClientIWS
         // Display or update the execution time
         private void UpdateAndDisplayExecutionTimeClientSide(long executionTime)
         {
-            labelExecutionTime.Text = $"Execution time: {executionTime} ms";
-            labelExecutionTime.Visible = true;
+            if (checkBoxDisplayMS.Checked)
+            {
+                labelExecutionTime.Text = $"{executionTime} ms";
+                labelExecutionTime.Visible = true;
+            } else
+            {
+                labelExecutionTime.Visible = false;
+            }
         }
 
         // Find the station object
@@ -87,6 +95,7 @@ namespace ClientIWS
             labelError.Visible = false;
             labelAvailableBikes.Visible = false;
             labelMoreInformation.Visible = false;
+            SubscribeButton.Visible = false;
 
             // Update execution time client-side
             Stopwatch stopwatch = Stopwatch.StartNew();
@@ -121,6 +130,7 @@ namespace ClientIWS
             labelAvailableBikes.Visible = false;
             labelError.Visible = false;
             labelMoreInformation.Visible = false;
+            SubscribeButton.Visible = false;
 
             if (selectedCity.Equals("None"))
             {
@@ -268,6 +278,7 @@ namespace ClientIWS
             selectedStation = (string)listBoxStations.SelectedItem;
             labelSelectedStation.Text = selectedStation;
             listBoxStations.Enabled = false;
+            SubscribeButton.Visible = true;
             GetAvailableBikes();
         }
 
@@ -286,7 +297,28 @@ namespace ClientIWS
 
         private void SubscribeButton_Click(object sender, EventArgs e)
         {
-            subscriberClient.Subscribe(selectedCity, selectedStation, 10);
+            if (selectedCity.Equals("None") || selectedStation.Equals("None")) return;
+            if (subscribedStations.Contains(selectedStation))
+            {
+                return;
+            } else
+            {
+                subscriberClient.Subscribe(selectedCity, selectedStation, 10);
+                subscribedStations.Add(selectedStation);
+                listBoxSubscribedStations.Items.Add(new SubscribedStation(selectedStation, selectedCity));
+                listBoxSubscribedStations.Visible = true;
+                return;
+            }
+        }
+
+        private void listBoxSubscribedStations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SubscribedStation ss = (SubscribedStation) listBoxSubscribedStations.SelectedItem;
+            selectedCity = ss.CityName;
+            labelSelectedCity.Text = selectedCity;
+            selectedStation = ss.OriginalStationName;
+            labelSelectedStation.Text = selectedStation;
+            GetAvailableBikes();
         }
     }
 }

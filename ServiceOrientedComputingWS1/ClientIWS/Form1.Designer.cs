@@ -39,6 +39,9 @@
             this.panelLeft = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.listBoxSubscribedStations = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SubscribeButton = new System.Windows.Forms.Button();
             this.map = new GMap.NET.WindowsForms.GMapControl();
             this.labelSelectedStation = new System.Windows.Forms.Label();
@@ -54,6 +57,7 @@
             this.labelMoreInformation = new System.Windows.Forms.Label();
             this.labelExecutionTime = new System.Windows.Forms.Label();
             this.labelUpdateAvailableBikes = new System.Windows.Forms.Label();
+            this.checkBoxDisplayMS = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -152,14 +156,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(199, 100);
+            this.panel3.Size = new System.Drawing.Size(199, 89);
             this.panel3.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 10);
+            this.label1.Location = new System.Drawing.Point(12, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(168, 79);
             this.label1.TabIndex = 0;
@@ -187,6 +191,9 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.listBoxSubscribedStations);
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.SubscribeButton);
             this.panel4.Controls.Add(this.map);
             this.panel4.Controls.Add(this.labelSelectedStation);
@@ -195,19 +202,55 @@
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(990, 0);
+            this.panel4.Location = new System.Drawing.Point(994, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(466, 723);
+            this.panel4.Size = new System.Drawing.Size(462, 723);
             this.panel4.TabIndex = 4;
+            // 
+            // listBoxSubscribedStations
+            // 
+            this.listBoxSubscribedStations.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.listBoxSubscribedStations.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBoxSubscribedStations.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxSubscribedStations.FormattingEnabled = true;
+            this.listBoxSubscribedStations.ItemHeight = 23;
+            this.listBoxSubscribedStations.Location = new System.Drawing.Point(233, 189);
+            this.listBoxSubscribedStations.Name = "listBoxSubscribedStations";
+            this.listBoxSubscribedStations.Size = new System.Drawing.Size(200, 71);
+            this.listBoxSubscribedStations.TabIndex = 14;
+            this.listBoxSubscribedStations.Visible = false;
+            this.listBoxSubscribedStations.SelectedIndexChanged += new System.EventHandler(this.listBoxSubscribedStations_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.label6.Location = new System.Drawing.Point(235, 189);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 19);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "None";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(197, 130);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(197, 22);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Subscribed station(s)";
             // 
             // SubscribeButton
             // 
-            this.SubscribeButton.Location = new System.Drawing.Point(25, 668);
+            this.SubscribeButton.Location = new System.Drawing.Point(17, 657);
             this.SubscribeButton.Name = "SubscribeButton";
-            this.SubscribeButton.Size = new System.Drawing.Size(218, 43);
+            this.SubscribeButton.Size = new System.Drawing.Size(429, 43);
             this.SubscribeButton.TabIndex = 9;
             this.SubscribeButton.Text = "Subscribe";
             this.SubscribeButton.UseVisualStyleBackColor = true;
+            this.SubscribeButton.Visible = false;
             this.SubscribeButton.Click += new System.EventHandler(this.SubscribeButton_Click);
             // 
             // map
@@ -233,7 +276,7 @@
             this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.map.ShowTileGridLines = false;
-            this.map.Size = new System.Drawing.Size(437, 278);
+            this.map.Size = new System.Drawing.Size(429, 270);
             this.map.TabIndex = 8;
             this.map.Visible = false;
             this.map.Zoom = 15D;
@@ -287,14 +330,15 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(466, 100);
+            this.panel5.Size = new System.Drawing.Size(462, 89);
             this.panel5.TabIndex = 0;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 72F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(107, -19);
+            this.label2.Location = new System.Drawing.Point(95, -23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(271, 117);
             this.label2.TabIndex = 1;
@@ -366,12 +410,13 @@
             // 
             // labelExecutionTime
             // 
+            this.labelExecutionTime.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelExecutionTime.AutoSize = true;
-            this.labelExecutionTime.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelExecutionTime.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.labelExecutionTime.Location = new System.Drawing.Point(790, 646);
+            this.labelExecutionTime.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelExecutionTime.ForeColor = System.Drawing.Color.Gold;
+            this.labelExecutionTime.Location = new System.Drawing.Point(920, 13);
             this.labelExecutionTime.Name = "labelExecutionTime";
-            this.labelExecutionTime.Size = new System.Drawing.Size(58, 19);
+            this.labelExecutionTime.Size = new System.Drawing.Size(47, 16);
             this.labelExecutionTime.TabIndex = 8;
             this.labelExecutionTime.Text = "label5";
             this.labelExecutionTime.Visible = false;
@@ -380,17 +425,30 @@
             // 
             this.labelUpdateAvailableBikes.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelUpdateAvailableBikes.AutoSize = true;
-            this.labelUpdateAvailableBikes.Location = new System.Drawing.Point(229, 668);
+            this.labelUpdateAvailableBikes.ForeColor = System.Drawing.Color.LightGreen;
+            this.labelUpdateAvailableBikes.Location = new System.Drawing.Point(232, 679);
             this.labelUpdateAvailableBikes.Name = "labelUpdateAvailableBikes";
-            this.labelUpdateAvailableBikes.Size = new System.Drawing.Size(22, 21);
+            this.labelUpdateAvailableBikes.Size = new System.Drawing.Size(0, 21);
             this.labelUpdateAvailableBikes.TabIndex = 9;
-            this.labelUpdateAvailableBikes.Text = "...";
+            // 
+            // checkBoxDisplayMS
+            // 
+            this.checkBoxDisplayMS.AutoSize = true;
+            this.checkBoxDisplayMS.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxDisplayMS.ForeColor = System.Drawing.Color.Gold;
+            this.checkBoxDisplayMS.Location = new System.Drawing.Point(227, 12);
+            this.checkBoxDisplayMS.Name = "checkBoxDisplayMS";
+            this.checkBoxDisplayMS.Size = new System.Drawing.Size(172, 21);
+            this.checkBoxDisplayMS.TabIndex = 10;
+            this.checkBoxDisplayMS.Text = "Display execution time";
+            this.checkBoxDisplayMS.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(1456, 723);
+            this.Controls.Add(this.checkBoxDisplayMS);
             this.Controls.Add(this.labelUpdateAvailableBikes);
             this.Controls.Add(this.labelExecutionTime);
             this.Controls.Add(this.labelMoreInformation);
@@ -404,7 +462,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Teal;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "IWS Client";
             this.panel1.ResumeLayout(false);
@@ -447,6 +505,10 @@
         private System.Windows.Forms.Label labelExecutionTime;
         private System.Windows.Forms.Button SubscribeButton;
         private System.Windows.Forms.Label labelUpdateAvailableBikes;
+        private System.Windows.Forms.ListBox listBoxSubscribedStations;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox checkBoxDisplayMS;
     }
 }
 
