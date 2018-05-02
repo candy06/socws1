@@ -12,13 +12,13 @@ namespace SOAPLibraryVelib
         private const string availableBikeKey = "availableBikesKey";
         private const string informationKey = "informationKey";
 
-        private ObjectCache cache = MemoryCache.Default;
+        private ObjectCache _cache = MemoryCache.Default;
 
-        private RequestManager rm = new RequestManager();
+        private RequestManager _requestManager = new RequestManager();
 
         public List<Station> GetAllStations()
         {
-            return rm.GetAllStations();
+            return _requestManager.GetAllStations();
         }
 
         public int GetAvailableBikesForStation(string stationName, string cityName)
@@ -34,14 +34,14 @@ namespace SOAPLibraryVelib
 
             int availableBikes;
 
-            if (cache.Contains(keyForSpecifiedStation))
-                availableBikes = (int) cache.Get(keyForSpecifiedStation);
+            if (_cache.Contains(keyForSpecifiedStation))
+                availableBikes = (int) _cache.Get(keyForSpecifiedStation);
             else
             {
-                availableBikes = rm.GetAvailableBikes(stationName, cityName);
+                availableBikes = _requestManager.GetAvailableBikes(stationName, cityName);
                 CacheItemPolicy cacheItemPolicy = new CacheItemPolicy();
                 cacheItemPolicy.AbsoluteExpiration = DateTime.Now.AddMinutes(5);
-                cache.Add(keyForSpecifiedStation, availableBikes, cacheItemPolicy);
+                _cache.Add(keyForSpecifiedStation, availableBikes, cacheItemPolicy);
             }
 
             Monitor.RemoveClient();
@@ -59,14 +59,14 @@ namespace SOAPLibraryVelib
 
             List<City> cities;
 
-            if (cache.Contains(citiesKey))
-                cities = (List<City>) cache.Get(citiesKey);
+            if (_cache.Contains(citiesKey))
+                cities = (List<City>) _cache.Get(citiesKey);
             else
             {
-                cities = rm.GetCitiesRequest();
+                cities = _requestManager.GetCitiesRequest();
                 CacheItemPolicy cacheItemPolicy = new CacheItemPolicy();
                 cacheItemPolicy.AbsoluteExpiration = DateTime.Now.AddMinutes(5);
-                cache.Add(citiesKey, cities, cacheItemPolicy);
+                _cache.Add(citiesKey, cities, cacheItemPolicy);
             }
 
             Monitor.RemoveClient();
@@ -85,11 +85,11 @@ namespace SOAPLibraryVelib
             string information;
             string key = informationKey + city + "no" + stationNumber;
 
-            if (cache.Contains(key))
-                information = (string)cache.Get(key);
+            if (_cache.Contains(key))
+                information = (string)_cache.Get(key);
             else
             {
-                Station s = rm.GetInformations(stationNumber, city);
+                Station s = _requestManager.GetInformations(stationNumber, city);
                 information = $"Name: {s.Name}\n" +
                     $"City:{s.Contract_name}\n" +
                     $"Number: {s.Number}\n" +
@@ -102,7 +102,7 @@ namespace SOAPLibraryVelib
                     $"Available bikes: {s.Available_bikes}\n";
                 CacheItemPolicy cacheItemPolicy = new CacheItemPolicy();
                 cacheItemPolicy.AbsoluteExpiration = DateTime.Now.AddMinutes(5);
-                cache.Add(key, information, cacheItemPolicy);
+                _cache.Add(key, information, cacheItemPolicy);
             }
 
             Monitor.RemoveClient();
@@ -122,14 +122,14 @@ namespace SOAPLibraryVelib
 
             string keyForSpecifiedCity = $"{stationsKey} For {cityName}";
 
-            if (cache.Contains(keyForSpecifiedCity))
-                stations = (List<Station>) cache.Get(keyForSpecifiedCity);
+            if (_cache.Contains(keyForSpecifiedCity))
+                stations = (List<Station>) _cache.Get(keyForSpecifiedCity);
             else
             {
-                stations = rm.GetStationsObjForCity(cityName);
+                stations = _requestManager.GetStationsForCity(cityName);
                 CacheItemPolicy cacheItemPolicy = new CacheItemPolicy();
                 cacheItemPolicy.AbsoluteExpiration = DateTime.Now.AddMinutes(5);
-                cache.Add(keyForSpecifiedCity, stations, cacheItemPolicy);
+                _cache.Add(keyForSpecifiedCity, stations, cacheItemPolicy);
             }
 
             Monitor.RemoveClient();

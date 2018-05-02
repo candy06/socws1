@@ -52,12 +52,13 @@
     <Compile Include="Subscriber\StationInfo.cs" />
     <Compile Include="Tools\ClientRequest.cs" />
     <Compile Include="Monitoring\IMonitorService.cs" />
-    <Compile Include="Velib\IService.cs" />
+    <Compile Include="Tools\ServerRequest.cs" />
+    <Compile Include="Velib\IBikeService.cs" />
     <Compile Include="Monitoring\Monitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\RequestManager.cs" />
     <Compile Include="Monitoring\MonitorService.cs" />
-    <Compile Include="Velib\Service.cs" />
+    <Compile Include="Velib\BikeService.cs" />
     <Compile Include="Tools\URIBuilder.cs" />
   </ItemGroup>
   <ItemGroup>

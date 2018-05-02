@@ -1,20 +1,29 @@
-﻿using System;
+﻿using SOAPLibraryVelib.Tools;
+using System;
 
 namespace SOAPLibraryVelib
 {
     class URIBuilder
     {
-        public string GenerateURI(URIType uri, string apiKey, string cityName = "", int stationNumber = 0)
+        /// <summary>
+        /// Generate the correct URI that will be needed for a given request
+        /// </summary>
+        /// <param name="serverRequest"> the request </param>
+        /// <param name="apiKey"> the API Key </param>
+        /// <param name="cityName"> the city name </param>
+        /// <param name="stationNumber"> the station name </param>
+        /// <returns> the correct URI </returns>
+        public string GenerateURI(ServerRequest serverRequest, string apiKey, string cityName = "", int stationNumber = 0)
         {
-            switch (uri)
+            switch (serverRequest)
             {
-                case URIType.GetCitiesURI:
+                case ServerRequest.GetCitiesRequest:
                     return GetCitiesURI(apiKey);
-                case URIType.GetStationsOfCityURI:
+                case ServerRequest.GetStationsOfCityRequest:
                     return GetStationsOfCity(apiKey, cityName);
-                case URIType.GetStationsURI:
+                case ServerRequest.GetStationsRequest:
                     return GetStations(apiKey);
-                case URIType.GetStationInformationURI:
+                case ServerRequest.GetStationInformationRequest:
                     return GetStationInformation(apiKey, stationNumber, cityName);
                 default:
                     return "";
@@ -42,11 +51,4 @@ namespace SOAPLibraryVelib
         }
     }
 
-    enum URIType
-    {
-        GetCitiesURI,
-        GetStationInformationURI,
-        GetStationsURI,
-        GetStationsOfCityURI
-    };
 }

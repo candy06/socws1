@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SOAPLibraryVelib.Subscriber
 {
+    /// <summary>
+    /// Class that gather all the useful information to identify a station
+    /// </summary>
     class StationInfo
     {
         public string StationName { get; set; }

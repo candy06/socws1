@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using SOAPLibraryVelib.Tools;
+using System.ServiceModel;
 
 namespace SOAPLibraryVelib
 {
